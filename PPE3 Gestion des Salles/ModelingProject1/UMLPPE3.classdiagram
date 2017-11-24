@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="0302311d-8b37-441a-bb7f-cce6df28defb" name="UMLClassDiagram1" linkedPackageId="cfa9d28e-6258-410a-bb4d-6ee16bb8edb2" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7bc89943-ae74-4aad-94ec-cd5cbadccd30" name="Salle" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="793c2785-bad5-439e-8844-df0e81d328c7" />
+        <targetEnds>
+          <association Id="a3e77566-85c3-49b9-9b77-ff1b86443dfb" isDerived="false" sourceEndRoleName="Salle" targetEndRoleName="Reservation" isLeaf="false" isAbstract="false">
+            <classMoniker Id="6eadee29-73a1-4ddd-aee0-6ff3512fb25a" LastKnownName="Reservation" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="16a587cd-ddb6-4947-9533-8fb16e2320f4" name="Salle" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="14cfb5a9-4240-4ab3-a6f8-bd5474b39f2e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5440f424-7659-4eb8-a9df-9ac5e5b94b08" name="Reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a8bf36bb-57b1-4eed-80a6-42473d590cc5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4d377c89-e078-44f9-831f-28ae78abf620" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="76fa2254-6907-489b-89bd-a473748df90c" name="numero" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6f0d9a29-3fd8-4922-9f12-b904c7e62bfa" />
+          </property>
+          <property Id="550084ac-4b49-415b-a509-dc3e09f22f80" name="nom" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="acddb7ad-37cb-4659-8af8-c3583b353531" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="6eadee29-73a1-4ddd-aee0-6ff3512fb25a" name="Reservation" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e552ee46-2ef0-4a67-8036-f96a050e384c" />
+        <targetEnds>
+          <association Id="a10d9d22-714b-4202-843c-b4bfe67d7977" isDerived="false" sourceEndRoleName="Reservation" targetEndRoleName="Employe" isLeaf="false" isAbstract="false">
+            <classMoniker Id="7fc46cca-3c19-47a9-ae27-45ec4326d5f8" LastKnownName="Employe" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e46f4684-7dd7-47fe-b2a7-6cc1701c0093" name="Reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="934892f8-5d2b-47e3-8df1-424c836fd954" name="Lower" value="1,n">
+                      <elementDefinition Id="3abd7cb3-15b9-40ad-80ad-7c990b10a35a" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="b56d4f32-e36c-4951-b035-64c462fb6f8b" name="Upper" value="1,n">
+                      <elementDefinition Id="d15cd321-c187-4348-9029-93817c2d2e80" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="046248ad-b933-44f9-bfb3-f4d0cada1184" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="09a2a8bd-cc06-4f7d-9a03-dbfdf5645389" name="Employe" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="7e3041ad-ce4f-4125-ac7d-76efd11206c0" name="Lower" value="1">
+                      <elementDefinition Id="4c050f0b-d4f2-4312-9ae6-58c804dddb3c" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="26a7bbd8-cecc-4774-b684-0ad2d8c8b7d4" name="Upper" value="1">
+                      <elementDefinition Id="1f17e72a-7c0d-44e4-8bd9-81dbc09846a7" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="8937abdb-20ad-4580-b0b9-2b5dcf045849" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="51ce28e0-5cf7-4029-821e-c7cf1d168c96" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="3e3fb5af-718b-4e27-94e6-2f91b6f53b66" name="idReservation" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="dc9c98fa-1229-41a4-8efa-af27d0b5558b" />
+          </property>
+          <property Id="3512d272-2a67-41e1-8dbd-7022f16339b8" name="Etat" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b0b8a8af-5a6a-4060-a00e-0911cf60d804" />
+          </property>
+          <property Id="9236df2f-3b9c-48f4-96c0-8595f32424c7" name="HeureReservation" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2a1da82d-0f5b-4370-8020-152105d21b4c" />
+          </property>
+          <property Id="15db5875-7ab3-40ec-b179-2249ab644c2a" name="DateReservation" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5e53dcba-d1f9-462b-8eaf-34b1265a04a8" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7fc46cca-3c19-47a9-ae27-45ec4326d5f8" name="Employe" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0e523ae8-734f-4e73-b475-c7d819ef50a9" />
+        <ownedAttributesInternal>
+          <property Id="8114abe0-786e-4334-9fa0-a009cde5ac47" name="nom" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="84a7b6f0-bf6b-4f88-b998-5d147c2c0866" />
+          </property>
+          <property Id="bebef388-4adf-4392-b836-fa4d1eb4435f" name="prenom" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="4d34ed4b-6151-4c21-9b8c-179b795d874d" />
+          </property>
+          <property Id="35bc65c7-d937-4e93-8140-0c56bde641c6" name="idEmploye" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0824d78c-49e3-4073-8df0-973f71fc91dc" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4e62076b-5ca2-40fb-bc07-0ff60b19700e" name="Etat" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d3ccd546-6929-4207-ad76-efadbe2a8a98" />
+        <targetEnds>
+          <association Id="ff79a4da-4d53-42bf-94f6-0b1bc3133751" isDerived="false" sourceEndRoleName="Etat" targetEndRoleName="Reservation" isLeaf="false" isAbstract="false">
+            <classMoniker Id="6eadee29-73a1-4ddd-aee0-6ff3512fb25a" LastKnownName="Reservation" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="126335ce-817c-4f58-89ed-696b073843ce" name="Etat" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="bc85d589-18ea-420d-9847-3af1872e3ca2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="db64a2f1-19fe-4db5-a119-ef3b7ec3a6ff" name="Reservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1c38fb87-0634-4f26-83f9-e53b0e0d5f0f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="fa8dc43c-36aa-4a9e-bc99-618836840edf" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="fe408958-95d2-4093-80cf-1101c6a53bbf" name="Disponible" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7a697f51-2e51-4012-93c0-d6dd36885020" />
+          </property>
+          <property Id="b0c44174-37cd-4368-a929-f6056220dd0e" name="Attente" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ee50df3f-4af0-455a-965d-9d110e4e15be" />
+          </property>
+          <property Id="b1ea0f6e-690b-4f77-a985-e3a609841bb4" name="Indisponible" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7f4e76d1-0425-432b-b22f-52371a89c791" />
+          </property>
+          <property Id="ad11f4f4-7c01-4f7b-b017-60834e0c02b8" name="Couleur" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="352db799-49bb-49f1-a1b4-e270dd12ca8a" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="cfa9d28e-6258-410a-bb4d-6ee16bb8edb2" name="ModelingProjectPPE3">
+    <elementDefinition Id="65c7f9c6-dd76-4cf5-a490-793f8e695ee0" />
+    <profileInstances>
+      <packageHasProfileInstances Id="6745544e-c53a-4da2-ab0c-1f01b986bd6f">
+        <profileInstance Id="9cd21fc6-b31e-44b4-a028-92d6967c96c5" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="0f832db3-2a27-4d29-8f97-fe0eeb0ecd2e">
+        <profileInstance Id="93d6b69d-0326-4b78-af9b-bde16cf48a9c" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>
