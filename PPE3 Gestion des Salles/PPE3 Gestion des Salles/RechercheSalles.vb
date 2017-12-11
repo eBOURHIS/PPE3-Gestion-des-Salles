@@ -13,7 +13,7 @@ Public Class RechercheSalles
 
     Private Sub RecherchesSalles_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        connString = "DSN=ORA13;Uid=scott;Pwd=estran;"
+        connString = "DSN=ORA13;Uid=Admin_GSB;Pwd=estran;"
 
         myConnection.ConnectionString = connString
 
@@ -24,57 +24,67 @@ Public Class RechercheSalles
             MessageBox.Show(ex.Message)
         End Try
 
-        Dim query As String = "SELECT table_name FROM user_tables"
+        Dim query As String = "SELECT DATEDEBUT, DATEFIN FROM RESERVATION"
         myCommand.Connection = myConnection
         myCommand.CommandText = query
         myReader = myCommand.ExecuteReader
+        
+        While myReader.Read
+            Me.ListeHoraire.Items.Add(myReader.GetString(0))
+        End While
 
-        'While myReader.Read
-        'nomBox.Items.Add(myReader.GetString(0))
-        'End While
+        myConnection.Close()
+        myConnection.Open()
+
+        Dim querySalle As String = "SELECT NOM_SALLE FROM SALLE"
+        myCommand.Connection = myConnection
+        myCommand.CommandText = querySalle
+        myReader = myCommand.ExecuteReader
+
+        While myReader.Read
+            Me.ListeSalles.Items.Add(myReader.GetString(0))
+        End While
+
     End Sub
 
-    Private Sub BoutonRechercheparHoraire_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BoutonRechercheparHoraire.Click
+    Private Sub BoutonRechercheparHoraire_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.TableauSallesDispo.Rows.Add("D22", "D23", "D21")
         Me.TableauSallesDispo.Rows.Add("D24", "D21", "D20")
         Me.ListeHoraire.Enabled = False
-        Me.BoutonRechercheparHoraire.Enabled = False
-        Me.BoutonNouvelleRecherche1.Enabled = True
-        Me.LabelTableauHoraire.Text = ("Salles disponibles pour la tranche horaire : " + Me.ListeHoraire.Text + " h :")
-                                        
+        Me.LabelTableauHoraire25.Text = ("Salles disponibles pour la tranche horaire : " + Me.ListeHoraire.Text + " h :")
+
     End Sub
 
-    Private Sub BoutonNouvelleRecherche_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BoutonNouvelleRecherche1.Click
+    Private Sub BoutonNouvelleRecherche_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.ListeHoraire.Enabled = True
-        Me.BoutonRechercheparHoraire.Enabled = True
-        Me.BoutonNouvelleRecherche1.Enabled = False
         Me.TableauSallesDispo.Rows.Clear()
-        Me.LabelTableauHoraire.Text = ""
-    End Sub
-
-    Private Sub BoutonRechercheparSalles_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BoutonRechercheparSalle.Click
-        Me.TableauHorairesDispo.Rows.Add("Disponible", "Disponible", "Disponible")
-        Me.ListeSalles.Enabled = False
-        Me.BoutonRechercheparSalle.Enabled = False
-        Me.BoutonNouvelleRecherche2.Enabled = True
-        Me.LabelTableauSalles.Text = ("La salle " + Me.ListeSalles.Text + " est disponible aux créneaux horaires suivants : ")
-    End Sub
-
-    Private Sub BoutonNouvelleRecherche2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BoutonNouvelleRecherche2.Click
-        Me.ListeSalles.Enabled = True
-        Me.BoutonRechercheparSalle.Enabled = True
-        Me.BoutonNouvelleRecherche2.Enabled = False
-        Me.TableauHorairesDispo.Rows.Clear()
-        Me.LabelTableauSalles.Text = ""
-        Me.ListeSalles.Text = ""
+        Me.LabelTableauHoraire25.Text = ""
     End Sub
 
     Private Sub ListeHoraire_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListeHoraire.SelectedIndexChanged
-        Me.BoutonRechercheparHoraire.Enabled = True
+        Dim horaire_salle As String = ListeHoraire.SelectedItem.ToString()
+        Dim query As String = "SELECT NOM_SALLE FROM RESERVATION, SALLE WHERE RESERVATION.ID_SALLE = SALLE.ID_SALLE AND DATEDEBUT = '" & horaire_salle & "';"
+        donnee = New DataTable
+        myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
+        myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
+        myAdapter.Fill(donnee)
+        TableauSallesDispo.DataSource = donnee
+        myConnection.Close()
+        myConnection.Open()
     End Sub
 
     Private Sub ListeSalles_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListeSalles.SelectedIndexChanged
-        Me.BoutonRechercheparSalle.Enabled = True
+        Dim salle_name As String = ListeSalles.SelectedItem.ToString()
+        Dim query As String = "SELECT DATEDEBUT, DATEFIN FROM SALLE, RESERVATION, ETAT WHERE SALLE.ID_SALLE = RESERVATION.ID_SALLE AND RESERVATION.ID_ETAT = ETAT.ID_ETAT AND ETAT.ID_ETAT = 1 OR ETAT.ID_ETAT = 2 AND NOM_SALLE = '" & salle_name & "';"
+        Me.LabelTableauHoraire.Text = ("La salle " & salle_name & " est disponible aux horaires suivants")
+        donnee = New DataTable
+        myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
+        myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
+        myAdapter.Fill(donnee)
+        TableauHorairesDispo.DataSource = donnee
     End Sub
 
+    Private Sub RechercheParÉtatToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RechercheParÉtatToolStripMenuItem.Click
+        VerificationEtatSalle.ShowDialog()
+    End Sub
 End Class
