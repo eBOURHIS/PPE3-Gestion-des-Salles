@@ -19,22 +19,9 @@ Public Class RechercheSalles
 
         Try
             myConnection.Open()
-            MessageBox.Show("Connexion Oracle Réussie")
         Catch ex As Odbc.OdbcException
             MessageBox.Show(ex.Message)
         End Try
-
-        Dim query As String = "SELECT DATEDEBUT, DATEFIN FROM RESERVATION"
-        myCommand.Connection = myConnection
-        myCommand.CommandText = query
-        myReader = myCommand.ExecuteReader
-        
-        While myReader.Read
-            Me.ListeHoraire.Items.Add(myReader.GetString(0))
-        End While
-
-        myConnection.Close()
-        myConnection.Open()
 
         Dim querySalle As String = "SELECT NOM_SALLE FROM SALLE"
         myCommand.Connection = myConnection
@@ -45,25 +32,29 @@ Public Class RechercheSalles
             Me.ListeSalles.Items.Add(myReader.GetString(0))
         End While
 
+        Me.BoxYear.Maximum = Date.Today.Year
+        Me.BoxYear.Minimum = Date.Today.Year
+        Me.BoxYear.Value = Date.Today.Year
+
+        Me.BoxMonth.Maximum = Date.Today.Month
+        Me.BoxMonth.Minimum = Date.Today.Month
+        Me.BoxMonth.Value = Date.Today.Month
+
+        Me.BoxDay.Minimum = Date.Today.Day
+        Me.BoxDay.Value = Date.Today.Day
+
+        Me.BoxHour.Maximum = 24
+        Me.BoxHour.Minimum = 1
+        Me.BoxHour.Value = Hour(Now())
     End Sub
 
-    Private Sub BoutonRechercheparHoraire_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Me.TableauSallesDispo.Rows.Add("D22", "D23", "D21")
-        Me.TableauSallesDispo.Rows.Add("D24", "D21", "D20")
-        Me.ListeHoraire.Enabled = False
-        Me.LabelTableauHoraire25.Text = ("Salles disponibles pour la tranche horaire : " + Me.ListeHoraire.Text + " h :")
-
-    End Sub
-
-    Private Sub BoutonNouvelleRecherche_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Me.ListeHoraire.Enabled = True
-        Me.TableauSallesDispo.Rows.Clear()
-        Me.LabelTableauHoraire25.Text = ""
-    End Sub
-
-    Private Sub ListeHoraire_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListeHoraire.SelectedIndexChanged
-        Dim horaire_salle As String = ListeHoraire.SelectedItem.ToString()
-        Dim query As String = "SELECT NOM_SALLE FROM RESERVATION, SALLE WHERE RESERVATION.ID_SALLE = SALLE.ID_SALLE AND DATEDEBUT = '" & horaire_salle & "';"
+    Private Sub RechercheHoraire_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RechercheHoraire.Click
+        Dim horaire_year As String = Me.BoxYear.Value
+        Dim horaire_month As String = Me.BoxMonth.Value
+        Dim horaire_day As String = Me.BoxDay.Value
+        Dim horaire_hour As String = Me.BoxHour.Value
+        Dim query As String = "SELECT NOM_SALLE FROM RESERVATION, SALLE WHERE RESERVATION.ID_SALLE = SALLE.ID_SALLE AND TO_CHAR(DATEDEBUT, 'DD') != '" & horaire_day & "' AND TO_CHAR(DATEDEBUT,'HH') != '" & horaire_hour & "';"
+        Me.LabelTableauSalles.Text = ("Voici le(s) salle(s) disponible(s) à cette horaire")
         donnee = New DataTable
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
         myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
@@ -76,7 +67,7 @@ Public Class RechercheSalles
     Private Sub ListeSalles_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListeSalles.SelectedIndexChanged
         Dim salle_name As String = ListeSalles.SelectedItem.ToString()
         Dim query As String = "SELECT DATEDEBUT, DATEFIN FROM SALLE, RESERVATION, ETAT WHERE SALLE.ID_SALLE = RESERVATION.ID_SALLE AND RESERVATION.ID_ETAT = ETAT.ID_ETAT AND ETAT.ID_ETAT = 1 OR ETAT.ID_ETAT = 2 AND NOM_SALLE = '" & salle_name & "';"
-        Me.LabelTableauHoraire.Text = ("La salle " & salle_name & " est disponible aux horaires suivants")
+        Me.LabelTableauHoraire.Text = ("La salle " & salle_name & " est indisponible aux horaires suivants")
         donnee = New DataTable
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
         myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
@@ -87,4 +78,7 @@ Public Class RechercheSalles
     Private Sub RechercheParÉtatToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RechercheParÉtatToolStripMenuItem.Click
         VerificationEtatSalle.ShowDialog()
     End Sub
+
+    
+    
 End Class

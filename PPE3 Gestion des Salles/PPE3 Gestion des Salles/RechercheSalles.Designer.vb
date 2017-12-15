@@ -23,12 +23,12 @@ Partial Class RechercheSalles
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MonProfileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -36,7 +36,7 @@ Partial Class RechercheSalles
         Me.ConsulterLagendaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PlusDeRechercheToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RechercheParÉtatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LabelTableauHoraire25 = New System.Windows.Forms.Label()
+        Me.LabelTableauSalles = New System.Windows.Forms.Label()
         Me.TableauHorairesDispo = New System.Windows.Forms.DataGridView()
         Me.ListeSalles = New System.Windows.Forms.ComboBox()
         Me.DataSet1 = New PPE3_Gestion_des_Salles.DataSet1()
@@ -44,13 +44,25 @@ Partial Class RechercheSalles
         Me.EMPTableAdapter = New PPE3_Gestion_des_Salles.DataSet1TableAdapters.EMPTableAdapter()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TableauSallesDispo = New System.Windows.Forms.DataGridView()
-        Me.ListeHoraire = New System.Windows.Forms.ComboBox()
         Me.LabelTableauHoraire = New System.Windows.Forms.Label()
+        Me.BoxYear = New System.Windows.Forms.NumericUpDown()
+        Me.BoxMonth = New System.Windows.Forms.NumericUpDown()
+        Me.BoxDay = New System.Windows.Forms.NumericUpDown()
+        Me.BoxHour = New System.Windows.Forms.NumericUpDown()
+        Me.RechercheHoraire = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.TableauHorairesDispo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EMPBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TableauSallesDispo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BoxYear, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BoxMonth, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BoxDay, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BoxHour, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -108,13 +120,13 @@ Partial Class RechercheSalles
         Me.RechercheParÉtatToolStripMenuItem.Size = New System.Drawing.Size(226, 26)
         Me.RechercheParÉtatToolStripMenuItem.Text = "Recherche par état"
         '
-        'LabelTableauHoraire25
+        'LabelTableauSalles
         '
-        Me.LabelTableauHoraire25.AutoSize = True
-        Me.LabelTableauHoraire25.Location = New System.Drawing.Point(462, 35)
-        Me.LabelTableauHoraire25.Name = "LabelTableauHoraire25"
-        Me.LabelTableauHoraire25.Size = New System.Drawing.Size(0, 13)
-        Me.LabelTableauHoraire25.TabIndex = 43
+        Me.LabelTableauSalles.AutoSize = True
+        Me.LabelTableauSalles.Location = New System.Drawing.Point(369, 40)
+        Me.LabelTableauSalles.Name = "LabelTableauSalles"
+        Me.LabelTableauSalles.Size = New System.Drawing.Size(0, 13)
+        Me.LabelTableauSalles.TabIndex = 43
         '
         'TableauHorairesDispo
         '
@@ -123,30 +135,30 @@ Partial Class RechercheSalles
         Me.TableauHorairesDispo.AllowUserToResizeRows = False
         Me.TableauHorairesDispo.BackgroundColor = System.Drawing.Color.SlateGray
         Me.TableauHorairesDispo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.TableauHorairesDispo.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle25.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.TableauHorairesDispo.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle25
         Me.TableauHorairesDispo.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.TableauHorairesDispo.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle26.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle26.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.TableauHorairesDispo.DefaultCellStyle = DataGridViewCellStyle26
         Me.TableauHorairesDispo.Location = New System.Drawing.Point(272, 377)
         Me.TableauHorairesDispo.Name = "TableauHorairesDispo"
         Me.TableauHorairesDispo.ReadOnly = True
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TableauHorairesDispo.RowsDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle27.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TableauHorairesDispo.RowsDefaultCellStyle = DataGridViewCellStyle27
         Me.TableauHorairesDispo.Size = New System.Drawing.Size(544, 233)
         Me.TableauHorairesDispo.TabIndex = 45
         '
@@ -176,11 +188,11 @@ Partial Class RechercheSalles
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(2, 66)
+        Me.Label3.Location = New System.Drawing.Point(2, 50)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(264, 21)
+        Me.Label3.Size = New System.Drawing.Size(180, 21)
         Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Rechercher par tranche horaire :"
+        Me.Label3.Text = "Rechercher par Date :"
         '
         'TableauSallesDispo
         '
@@ -188,60 +200,142 @@ Partial Class RechercheSalles
         Me.TableauSallesDispo.AllowUserToDeleteRows = False
         Me.TableauSallesDispo.BackgroundColor = System.Drawing.Color.SlateGray
         Me.TableauSallesDispo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Modern No. 20", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.TableauSallesDispo.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle28.Font = New System.Drawing.Font("Modern No. 20", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.TableauSallesDispo.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle28
         Me.TableauSallesDispo.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.TableauSallesDispo.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle29.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.TableauSallesDispo.DefaultCellStyle = DataGridViewCellStyle29
         Me.TableauSallesDispo.Location = New System.Drawing.Point(272, 66)
         Me.TableauSallesDispo.Name = "TableauSallesDispo"
         Me.TableauSallesDispo.ReadOnly = True
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TableauSallesDispo.RowsDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle30.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TableauSallesDispo.RowsDefaultCellStyle = DataGridViewCellStyle30
         Me.TableauSallesDispo.Size = New System.Drawing.Size(544, 233)
         Me.TableauSallesDispo.TabIndex = 39
-        '
-        'ListeHoraire
-        '
-        Me.ListeHoraire.FormattingEnabled = True
-        Me.ListeHoraire.Location = New System.Drawing.Point(44, 100)
-        Me.ListeHoraire.Name = "ListeHoraire"
-        Me.ListeHoraire.Size = New System.Drawing.Size(121, 21)
-        Me.ListeHoraire.TabIndex = 48
         '
         'LabelTableauHoraire
         '
         Me.LabelTableauHoraire.AutoSize = True
         Me.LabelTableauHoraire.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelTableauHoraire.Location = New System.Drawing.Point(450, 353)
+        Me.LabelTableauHoraire.Location = New System.Drawing.Point(369, 353)
         Me.LabelTableauHoraire.Name = "LabelTableauHoraire"
         Me.LabelTableauHoraire.Size = New System.Drawing.Size(0, 21)
         Me.LabelTableauHoraire.TabIndex = 49
+        '
+        'BoxYear
+        '
+        Me.BoxYear.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BoxYear.Location = New System.Drawing.Point(12, 105)
+        Me.BoxYear.Maximum = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.BoxYear.Name = "BoxYear"
+        Me.BoxYear.Size = New System.Drawing.Size(120, 25)
+        Me.BoxYear.TabIndex = 50
+        '
+        'BoxMonth
+        '
+        Me.BoxMonth.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BoxMonth.Location = New System.Drawing.Point(146, 105)
+        Me.BoxMonth.Name = "BoxMonth"
+        Me.BoxMonth.Size = New System.Drawing.Size(120, 25)
+        Me.BoxMonth.TabIndex = 51
+        '
+        'BoxDay
+        '
+        Me.BoxDay.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BoxDay.Location = New System.Drawing.Point(12, 165)
+        Me.BoxDay.Name = "BoxDay"
+        Me.BoxDay.Size = New System.Drawing.Size(120, 25)
+        Me.BoxDay.TabIndex = 52
+        '
+        'BoxHour
+        '
+        Me.BoxHour.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BoxHour.Location = New System.Drawing.Point(146, 165)
+        Me.BoxHour.Name = "BoxHour"
+        Me.BoxHour.Size = New System.Drawing.Size(120, 25)
+        Me.BoxHour.TabIndex = 53
+        '
+        'RechercheHoraire
+        '
+        Me.RechercheHoraire.Location = New System.Drawing.Point(59, 222)
+        Me.RechercheHoraire.Name = "RechercheHoraire"
+        Me.RechercheHoraire.Size = New System.Drawing.Size(138, 48)
+        Me.RechercheHoraire.TabIndex = 54
+        Me.RechercheHoraire.Text = "Lancer la recherche"
+        Me.RechercheHoraire.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(40, 81)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(59, 21)
+        Me.Label2.TabIndex = 55
+        Me.Label2.Text = "Année"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(177, 81)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(48, 21)
+        Me.Label4.TabIndex = 56
+        Me.Label4.Text = "Mois"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(41, 141)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(45, 21)
+        Me.Label5.TabIndex = 57
+        Me.Label5.Text = "Jour"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(151, 141)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(106, 21)
+        Me.Label6.TabIndex = 58
+        Me.Label6.Text = "Heure (24h)"
         '
         'RechercheSalles
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(848, 678)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.RechercheHoraire)
+        Me.Controls.Add(Me.BoxHour)
+        Me.Controls.Add(Me.BoxDay)
+        Me.Controls.Add(Me.BoxMonth)
+        Me.Controls.Add(Me.BoxYear)
         Me.Controls.Add(Me.LabelTableauHoraire)
         Me.Controls.Add(Me.ListeSalles)
-        Me.Controls.Add(Me.ListeHoraire)
         Me.Controls.Add(Me.TableauHorairesDispo)
-        Me.Controls.Add(Me.LabelTableauHoraire25)
+        Me.Controls.Add(Me.LabelTableauSalles)
         Me.Controls.Add(Me.TableauSallesDispo)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
@@ -255,6 +349,10 @@ Partial Class RechercheSalles
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EMPBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TableauSallesDispo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BoxYear, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BoxMonth, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BoxDay, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BoxHour, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -264,7 +362,7 @@ Partial Class RechercheSalles
     Friend WithEvents MonProfileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DéconnexionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ConsulterLagendaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents LabelTableauHoraire25 As System.Windows.Forms.Label
+    Friend WithEvents LabelTableauSalles As System.Windows.Forms.Label
     Friend WithEvents TableauHorairesDispo As System.Windows.Forms.DataGridView
     Friend WithEvents ListeSalles As System.Windows.Forms.ComboBox
     Friend WithEvents DataSet1 As PPE3_Gestion_des_Salles.DataSet1
@@ -272,9 +370,17 @@ Partial Class RechercheSalles
     Friend WithEvents EMPTableAdapter As PPE3_Gestion_des_Salles.DataSet1TableAdapters.EMPTableAdapter
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents TableauSallesDispo As System.Windows.Forms.DataGridView
-    Friend WithEvents ListeHoraire As System.Windows.Forms.ComboBox
     Friend WithEvents PlusDeRechercheToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RechercheParÉtatToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LabelTableauHoraire As System.Windows.Forms.Label
+    Friend WithEvents BoxYear As System.Windows.Forms.NumericUpDown
+    Friend WithEvents BoxMonth As System.Windows.Forms.NumericUpDown
+    Friend WithEvents BoxDay As System.Windows.Forms.NumericUpDown
+    Friend WithEvents BoxHour As System.Windows.Forms.NumericUpDown
+    Friend WithEvents RechercheHoraire As System.Windows.Forms.Button
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
 
 End Class

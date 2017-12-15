@@ -15,19 +15,10 @@
 
         Try
             myConnection.Open()
-            MessageBox.Show("Connexion Oracle Réussie")
+            'MessageBox.Show("Connexion Oracle Réussie")
         Catch ex As Odbc.OdbcException
             MessageBox.Show(ex.Message)
         End Try
-
-        'Dim query As String = "SELECT table_name FROM user_tables"
-        'myCommand.Connection = myConnection
-        'myCommand.CommandText = query
-        ' myReader = myCommand.ExecuteReader
-
-        ' While myReader.Read
-        'Me.ListeHoraire.Items.Add(myReader.GetString(0))
-        '  End While
 
         Dim querySalle As String = "SELECT LIBELLE FROM ETAT"
         myCommand.Connection = myConnection
