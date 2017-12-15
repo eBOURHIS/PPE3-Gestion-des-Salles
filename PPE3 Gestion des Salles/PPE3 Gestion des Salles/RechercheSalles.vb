@@ -32,13 +32,13 @@ Public Class RechercheSalles
             Me.ListeSalles.Items.Add(myReader.GetString(0))
         End While
 
-        Me.BoxYear.Maximum = Date.Today.Year
+        Me.BoxYear.Maximum = Date.Today.Year + 1
         Me.BoxYear.Minimum = Date.Today.Year
         Me.BoxYear.Value = Date.Today.Year
 
+        Me.BoxMonth.Value = Date.Today.Month
         Me.BoxMonth.Maximum = Date.Today.Month
         Me.BoxMonth.Minimum = Date.Today.Month
-        Me.BoxMonth.Value = Date.Today.Month
 
         Me.BoxDay.Minimum = Date.Today.Day
         Me.BoxDay.Value = Date.Today.Day
@@ -53,7 +53,7 @@ Public Class RechercheSalles
         Dim horaire_month As String = Me.BoxMonth.Value
         Dim horaire_day As String = Me.BoxDay.Value
         Dim horaire_hour As String = Me.BoxHour.Value
-        Dim query As String = "SELECT NOM_SALLE FROM RESERVATION, SALLE WHERE RESERVATION.ID_SALLE = SALLE.ID_SALLE AND TO_CHAR(DATEDEBUT, 'DD') != '" & horaire_day & "' AND TO_CHAR(DATEDEBUT,'HH') != '" & horaire_hour & "';"
+        Dim query As String = "SELECT NOM_SALLE FROM RESERVATION, SALLE WHERE RESERVATION.ID_SALLE = SALLE.ID_SALLE AND TO_CHAR(DATEDEBUT, 'DD') != '" & horaire_day & "' AND TO_CHAR(DATEDEBUT,'HH') != '" & horaire_hour & "' OR SALLE.ID_SALLE NOT IN (SELECT ID_SALLE FROM RESERVATION);"
         Me.LabelTableauSalles.Text = ("Voici le(s) salle(s) disponible(s) à cette horaire")
         donnee = New DataTable
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
@@ -66,19 +66,28 @@ Public Class RechercheSalles
 
     Private Sub ListeSalles_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListeSalles.SelectedIndexChanged
         Dim salle_name As String = ListeSalles.SelectedItem.ToString()
-        Dim query As String = "SELECT DATEDEBUT, DATEFIN FROM SALLE, RESERVATION, ETAT WHERE SALLE.ID_SALLE = RESERVATION.ID_SALLE AND RESERVATION.ID_ETAT = ETAT.ID_ETAT AND ETAT.ID_ETAT = 1 OR ETAT.ID_ETAT = 2 AND NOM_SALLE = '" & salle_name & "';"
-        Me.LabelTableauHoraire.Text = ("La salle " & salle_name & " est indisponible aux horaires suivants")
+        Dim query As String = "SELECT DATEDEBUT, DATEFIN FROM SALLE, RESERVATION, ETAT WHERE SALLE.ID_SALLE = RESERVATION.ID_SALLE AND RESERVATION.ID_ETAT = ETAT.ID_ETAT AND ETAT.ID_ETAT = 1 AND NOM_SALLE = '" & salle_name & "';"
+        'MsgBox(query)
         donnee = New DataTable
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
         myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
         myAdapter.Fill(donnee)
         TableauHorairesDispo.DataSource = donnee
+        If Me.TableauHorairesDispo.Rows.Count < 1 Then
+            Me.LabelTableauHoraire.Text = ("La salle " & salle_name & " n'a pas été réservée !")
+        Else
+            Me.LabelTableauHoraire.Text = ("La salle " & salle_name & " est indisponible aux horaires suivants :")
+        End If
     End Sub
 
     Private Sub RechercheParÉtatToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RechercheParÉtatToolStripMenuItem.Click
         VerificationEtatSalle.ShowDialog()
     End Sub
 
-    
-    
+    Private Sub BoxYear_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BoxYear.ValueChanged
+        If Me.BoxYear.Value = Date.Today.Year + 1 Then
+            Me.BoxMonth.Maximum = 12
+            Me.BoxMonth.Minimum = 1
+        End If
+    End Sub
 End Class
