@@ -40,11 +40,12 @@ Public Class RechercheSalles
         Me.BoxMonth.Maximum = Date.Today.Month
         Me.BoxMonth.Minimum = Date.Today.Month
 
+        Me.BoxDay.Maximum = Date.Today.Day
         Me.BoxDay.Minimum = Date.Today.Day
         Me.BoxDay.Value = Date.Today.Day
 
-        Me.BoxHour.Maximum = 24
-        Me.BoxHour.Minimum = 1
+        Me.BoxHour.Maximum = 23
+        Me.BoxHour.Minimum = 0
         Me.BoxHour.Value = Hour(Now())
     End Sub
 
@@ -53,8 +54,8 @@ Public Class RechercheSalles
         Dim horaire_month As String = Me.BoxMonth.Value
         Dim horaire_day As String = Me.BoxDay.Value
         Dim horaire_hour As String = Me.BoxHour.Value
-        Dim query As String = "SELECT NOM_SALLE FROM RESERVATION, SALLE WHERE RESERVATION.ID_SALLE = SALLE.ID_SALLE AND TO_CHAR(DATEDEBUT, 'DD') != '" & horaire_day & "' AND TO_CHAR(DATEDEBUT,'HH') != '" & horaire_hour & "' OR SALLE.ID_SALLE NOT IN (SELECT ID_SALLE FROM RESERVATION);"
-        Me.LabelTableauSalles.Text = ("Voici le(s) salle(s) disponible(s) à cette horaire")
+        Dim query As String = "SELECT DISTINCT NOM_SALLE FROM RESERVATION, SALLE WHERE RESERVATION.ID_SALLE = SALLE.ID_SALLE AND TO_CHAR(DATEDEBUT, 'DD') != '" & horaire_day & "' AND TO_CHAR(DATEDEBUT,'HH24') != '" & horaire_hour & "';"
+        Me.LabelTableauSalles.Text = ("Voici les salles disponibles à cette horaire :")
         donnee = New DataTable
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
         myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
