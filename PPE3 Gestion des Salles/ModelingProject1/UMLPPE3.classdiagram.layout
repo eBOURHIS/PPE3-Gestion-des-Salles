@@ -46,7 +46,7 @@
         <OperationElementListCompartment Id="338d6548-ee38-4b99-8559-0d50ad67190c" absoluteBounds="7.64, 4.9917968476812042, 1.4700000000000002, 0.20117186754941963" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(7.625 : 4.52148435761531); (6.25 : 4.52148435761531)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="1" targetMultiplicity="1">
+    <associationConnector edgePoints="[(7.625 : 4.52148435761531); (6.25 : 4.52148435761531)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="1" targetMultiplicity="1">
       <associationMoniker Id="ff79a4da-4d53-42bf-94f6-0b1bc3133751" />
       <relativeChildShapes />
       <nodes>
