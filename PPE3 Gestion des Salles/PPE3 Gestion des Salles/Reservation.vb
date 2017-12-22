@@ -90,4 +90,7 @@
     End Sub
 
 
+    Private Sub VoirMesRéservationsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles VoirMesRéservationsToolStripMenuItem.Click
+        VoirReservations.ShowDialog()
+    End Sub
 End Class
