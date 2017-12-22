@@ -22,10 +22,9 @@ Partial Class VerificationEtatSalle
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.Liste_Etats = New System.Windows.Forms.ComboBox()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableauVerifSalleDispo = New System.Windows.Forms.DataGridView()
         Me.LabelTableauSalles = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -33,44 +32,36 @@ Partial Class VerificationEtatSalle
         CType(Me.TableauVerifSalleDispo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Liste_Etats
-        '
-        Me.Liste_Etats.FormattingEnabled = True
-        Me.Liste_Etats.Location = New System.Drawing.Point(15, 59)
-        Me.Liste_Etats.Name = "Liste_Etats"
-        Me.Liste_Etats.Size = New System.Drawing.Size(121, 21)
-        Me.Liste_Etats.TabIndex = 47
-        '
         'TableauVerifSalleDispo
         '
         Me.TableauVerifSalleDispo.AllowUserToAddRows = False
         Me.TableauVerifSalleDispo.AllowUserToDeleteRows = False
         Me.TableauVerifSalleDispo.BackgroundColor = System.Drawing.Color.SlateGray
         Me.TableauVerifSalleDispo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.TableauVerifSalleDispo.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.TableauVerifSalleDispo.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.TableauVerifSalleDispo.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.TableauVerifSalleDispo.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.TableauVerifSalleDispo.DefaultCellStyle = DataGridViewCellStyle5
         Me.TableauVerifSalleDispo.Location = New System.Drawing.Point(15, 138)
         Me.TableauVerifSalleDispo.Name = "TableauVerifSalleDispo"
         Me.TableauVerifSalleDispo.ReadOnly = True
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TableauVerifSalleDispo.RowsDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TableauVerifSalleDispo.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.TableauVerifSalleDispo.Size = New System.Drawing.Size(691, 407)
         Me.TableauVerifSalleDispo.TabIndex = 49
         '
@@ -85,11 +76,11 @@ Partial Class VerificationEtatSalle
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 29)
+        Me.Label1.Location = New System.Drawing.Point(12, 35)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(210, 13)
+        Me.Label1.Size = New System.Drawing.Size(139, 13)
         Me.Label1.TabIndex = 46
-        Me.Label1.Text = "Vérifier les salles réservées ou en attentes :"
+        Me.Label1.Text = "Vérifier les salles réservées :"
         '
         'Label2
         '
@@ -105,7 +96,6 @@ Partial Class VerificationEtatSalle
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(718, 557)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Liste_Etats)
         Me.Controls.Add(Me.TableauVerifSalleDispo)
         Me.Controls.Add(Me.LabelTableauSalles)
         Me.Controls.Add(Me.Label1)
@@ -116,7 +106,6 @@ Partial Class VerificationEtatSalle
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Liste_Etats As System.Windows.Forms.ComboBox
     Friend WithEvents TableauVerifSalleDispo As System.Windows.Forms.DataGridView
     Friend WithEvents LabelTableauSalles As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label

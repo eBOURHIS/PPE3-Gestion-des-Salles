@@ -20,29 +20,20 @@
             MessageBox.Show(ex.Message)
         End Try
 
-        Dim querySalle As String = "SELECT LIBELLE FROM ETAT WHERE ID_ETAT = 1 OR ID_ETAT = 2"
+        Dim query As String = "SELECT NOM_SALLE, DATEDEBUT, DATEFIN FROM SALLE, RESERVATION, ETAT WHERE SALLE.ID_SALLE = RESERVATION.ID_SALLE AND RESERVATION.ID_ETAT = ETAT.ID_ETAT AND ETAT.ID_ETAT = 1"
         myCommand.Connection = myConnection
-        myCommand.CommandText = querySalle
+        myCommand.CommandText = query
         myReader = myCommand.ExecuteReader
 
-        While myReader.Read
-            Me.Liste_Etats.Items.Add(Trim(myReader.GetString(0)))
-        End While
-
-    End Sub
-
-
-    Private Sub Liste_Etats_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Liste_Etats.SelectedIndexChanged
-
-        Dim textlabel As String = Me.Liste_Etats.SelectedItem.ToString()
-        Me.Label2.Text = "Voici la liste des salles " & textlabel & "s"
-        Dim etat As String = Liste_Etats.SelectedItem
-        Dim query As String = "SELECT NOM_SALLE, DATEDEBUT, DATEFIN FROM SALLE, RESERVATION, ETAT WHERE SALLE.ID_SALLE = RESERVATION.ID_SALLE AND RESERVATION.ID_ETAT = ETAT.ID_ETAT AND ETAT.LIBELLE ='" & etat & "'"
         donnee = New DataTable
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
         myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
         myAdapter.Fill(donnee)
         TableauVerifSalleDispo.DataSource = donnee
 
+        myConnection.Close()
+
+
     End Sub
+
 End Class
