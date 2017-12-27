@@ -13,7 +13,7 @@ Public Class RechercheSalles
 
     Private Sub RecherchesSalles_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        connString = "DSN=ORA13;Uid=Admin_GSB;Pwd=estran;"
+        connString = "DSN=GSB;Uid=Admin_GSB;Pwd=estran;"
 
         myConnection.ConnectionString = connString
 
@@ -31,20 +31,22 @@ Public Class RechercheSalles
         While myReader.Read
             Me.ListeSalles.Items.Add(myReader.GetString(0))
         End While
+        myConnection.Close()
+        myConnection.Open()
 
         '----------------------------------------------------
-        Me.NouvelleRechercheHoraire.Enabled = False
+
 
         Me.BoxYear.Maximum = Date.Today.Year + 1
         Me.BoxYear.Minimum = Date.Today.Year
         Me.BoxYear.Value = Date.Today.Year
 
-        Me.BoxMonth.Value = Date.Today.Month
-        Me.BoxMonth.Maximum = Date.Today.Month
+        ' Me.BoxMonth.Value = Date.Today.Month
+        ' Me.BoxMonth.Maximum = Date.Today.Month
         Me.BoxMonth.Minimum = Date.Today.Month
 
-        Me.BoxDay.Maximum = Date.Today.Day
-        Me.BoxDay.Minimum = Date.Today.Day
+        ' Me.BoxDay.Maximum = Date.Today.Day
+        ' Me.BoxDay.Minimum = Date.Today.Day
         Me.BoxDay.Value = Date.Today.Day
 
         Me.BoxHour.Maximum = 23
@@ -54,13 +56,7 @@ Public Class RechercheSalles
     End Sub
 
     Private Sub RechercheHoraire_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RechercheHoraire.Click
-        Me.RechercheHoraire.Enabled = False
-        Me.NouvelleRechercheHoraire.Enabled = True
-        Dim horaire_year As String = Me.BoxYear.Value
-        Dim horaire_month As String = Me.BoxMonth.Value
-        Dim horaire_day As String = Me.BoxDay.Value
-        Dim horaire_hour As String = Me.BoxHour.Value
-        Dim query As String = "SELECT DISTINCT NOM_SALLE FROM RESERVATION, SALLE WHERE RESERVATION.ID_SALLE = SALLE.ID_SALLE AND TO_CHAR(DATEDEBUT, 'DD') != '" & horaire_day & "' AND TO_CHAR(DATEDEBUT,'HH24') != '" & horaire_hour & "';"
+        Dim query As String = "SELECT SALLE.NOM_SALLE FROM V_SALLE_DISPO, SALLE WHERE v_salle_dispo.id_salle = SALLE.ID_SALLE;"
         Me.LabelTableauSalles.Text = ("Voici les salles disponibles à cette horaire :")
         donnee = New DataTable
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
@@ -91,20 +87,60 @@ Public Class RechercheSalles
         End If
     End Sub
 
-    Private Sub RechercheParÉtatToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RechercheParÉtatToolStripMenuItem.Click
-        VerificationEtatSalle.ShowDialog()
-    End Sub
-
     Private Sub BoxYear_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BoxYear.ValueChanged
+        Dim horaire_year As String = Me.BoxYear.Value
+        Dim query As String = "CREATE OR REPLACE VIEW v_Salle_Dispo AS SELECT SALLE.ID_SALLE FROM SALLE MINUS SELECT RESERVATION.ID_SALLE FROM RESERVATION WHERE TO_CHAR(DATEDEBUT, 'YYYY') = '" & horaire_year & "' ;"
+        myCommand.Connection = myConnection
+        myCommand.CommandText = query
+        myReader = myCommand.ExecuteReader
+        myConnection.Close()
+        myConnection.Open()
         If Me.BoxYear.Value = Date.Today.Year + 1 Then
             Me.BoxMonth.Maximum = 12
             Me.BoxMonth.Minimum = 1
         End If
+
+    End Sub
+    Private Sub BoxMonth_ValueChanged(sender As System.Object, e As System.EventArgs) Handles BoxMonth.ValueChanged
+        Dim horaire_month As String = Me.BoxMonth.Value
+        Dim query As String = "CREATE OR REPLACE VIEW v_Salle_Dispo AS SELECT SALLE.ID_SALLE FROM SALLE MINUS SELECT RESERVATION.ID_SALLE FROM RESERVATION WHERE TO_CHAR(DATEDEBUT, 'MM') = '" & horaire_month & "';"
+        myCommand.Connection = myConnection
+        myCommand.CommandText = query
+        myReader = myCommand.ExecuteReader
+        myConnection.Close()
+        myConnection.Open()
     End Sub
 
-    Private Sub NouvelleRechercheHoraire_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NouvelleRechercheHoraire.Click
-        Me.RechercheHoraire.Enabled = True
-        TableauSallesDispo.Rows.Clear()
-        Me.NouvelleRechercheHoraire.Enabled = False
+    Private Sub BoxDay_ValueChanged(sender As System.Object, e As System.EventArgs) Handles BoxDay.ValueChanged
+        Dim horaire_day As String = Me.BoxDay.Value
+        Dim query As String = "CREATE OR REPLACE VIEW v_Salle_Dispo AS SELECT SALLE.ID_SALLE FROM SALLE MINUS SELECT RESERVATION.ID_SALLE FROM RESERVATION WHERE TO_CHAR(DATEDEBUT, 'DD') = '" & horaire_day & "';"
+        myCommand.Connection = myConnection
+        myCommand.CommandText = query
+        myReader = myCommand.ExecuteReader
+        myConnection.Close()
+        myConnection.Open()
+    End Sub
+
+    Private Sub BoxHour_ValueChanged(sender As System.Object, e As System.EventArgs) Handles BoxHour.ValueChanged
+        Dim horaire_hour As String = Me.BoxHour.Value
+        Dim query As String = "CREATE OR REPLACE VIEW v_Salle_Dispo AS SELECT SALLE.ID_SALLE FROM SALLE MINUS SELECT RESERVATION.ID_SALLE FROM RESERVATION WHERE TO_CHAR(DATEDEBUT, 'HH24') = '" & horaire_hour & "';"
+        myCommand.Connection = myConnection
+        myCommand.CommandText = query
+        myReader = myCommand.ExecuteReader
+        myConnection.Close()
+        myConnection.Open()
+    End Sub
+
+    Private Sub PlusDeRechercheTool_Click(sender As System.Object, e As System.EventArgs) Handles PlusDeRechercheTool.Click
+        VoirReservations.ShowDialog()
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
+        Me.TableauSallesDispo.
+
+    End Sub
+
+    Private Sub RéserverUneSalleToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RéserverUneSalleToolStripMenuItem.Click
+        Reservation.ShowDialog()
     End Sub
 End Class

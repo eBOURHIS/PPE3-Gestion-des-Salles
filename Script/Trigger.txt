@@ -37,4 +37,6 @@ BEGIN
   FROM dual;
 END;
 
+CREATE SEQUENCE SALLE_sequence START WITH 1;
+
 

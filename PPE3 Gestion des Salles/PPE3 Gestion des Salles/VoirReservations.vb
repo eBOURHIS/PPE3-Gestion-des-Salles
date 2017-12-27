@@ -11,7 +11,7 @@
 
     Private Sub VoirReservations_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        connString = "DSN=ORA13;Uid=Admin_GSB;Pwd=estran;"
+        connString = "DSN=GSB;Uid=Admin_GSB;Pwd=estran;"
 
         myConnection.ConnectionString = connString
 
@@ -21,7 +21,7 @@
             MessageBox.Show(ex.Message)
         End Try
 
-        Dim query As String = "SELECT NOM_SALLE, DATEDEBUT, DATEFIN FROM RESERVATION, SALLE WHERE RESERVATION.ID_EMPLOYE = 1"
+        Dim query As String = "SELECT NOM_SALLE, DATEDEBUT, DATEFIN FROM RESERVATION, SALLE WHERE salle.id_salle = RESERVATION.ID_SALLE AND RESERVATION.ID_EMPLOYE = 1"
         myCommand.Connection = myConnection
         myCommand.CommandText = query
         myReader = myCommand.ExecuteReader
