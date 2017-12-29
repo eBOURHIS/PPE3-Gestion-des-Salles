@@ -48,6 +48,7 @@ Partial Class Reservation
         '
         'ListeSalles
         '
+        Me.ListeSalles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ListeSalles.FormattingEnabled = True
         Me.ListeSalles.Location = New System.Drawing.Point(12, 99)
         Me.ListeSalles.Name = "ListeSalles"

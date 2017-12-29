@@ -135,11 +135,6 @@ Public Class RechercheSalles
         VoirReservations.ShowDialog()
     End Sub
 
-    Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
-        Me.TableauSallesDispo.
-
-    End Sub
-
     Private Sub RéserverUneSalleToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RéserverUneSalleToolStripMenuItem.Click
         Reservation.ShowDialog()
     End Sub
