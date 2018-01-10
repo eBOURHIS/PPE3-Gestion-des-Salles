@@ -11,7 +11,7 @@
 
         'TextBox_password.PasswordChar = "*"
 
-        connString = "DSN=GSB;Uid=Admin_GSB;Pwd=estran;"
+        connString = "DSN=ORA13;Uid=Admin_GSB;Pwd=estran;"
 
         myConnection.ConnectionString = connString
 
