@@ -83,6 +83,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Main.vb" />
     <Compile Include="Reservation.Designer.vb">
       <DependentUpon>Reservation.vb</DependentUpon>
     </Compile>

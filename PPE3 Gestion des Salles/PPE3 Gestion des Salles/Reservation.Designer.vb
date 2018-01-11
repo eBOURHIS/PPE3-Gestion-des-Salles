@@ -38,12 +38,10 @@ Partial Class Reservation
         Me.BoxMonth = New System.Windows.Forms.NumericUpDown()
         Me.BoxYear = New System.Windows.Forms.NumericUpDown()
         Me.MenuStrip2 = New System.Windows.Forms.MenuStrip()
-        Me.VoirMesRéservationsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.BoxHour, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BoxDay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BoxMonth, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BoxYear, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MenuStrip2.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListeSalles
@@ -190,18 +188,11 @@ Partial Class Reservation
         '
         'MenuStrip2
         '
-        Me.MenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VoirMesRéservationsToolStripMenuItem})
         Me.MenuStrip2.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip2.Name = "MenuStrip2"
         Me.MenuStrip2.Size = New System.Drawing.Size(864, 24)
         Me.MenuStrip2.TabIndex = 67
         Me.MenuStrip2.Text = "MenuStrip2"
-        '
-        'VoirMesRéservationsToolStripMenuItem
-        '
-        Me.VoirMesRéservationsToolStripMenuItem.Name = "VoirMesRéservationsToolStripMenuItem"
-        Me.VoirMesRéservationsToolStripMenuItem.Size = New System.Drawing.Size(130, 20)
-        Me.VoirMesRéservationsToolStripMenuItem.Text = "Voir mes réservations"
         '
         'Reservation
         '
@@ -231,8 +222,6 @@ Partial Class Reservation
         CType(Me.BoxDay, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BoxMonth, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BoxYear, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.MenuStrip2.ResumeLayout(False)
-        Me.MenuStrip2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -253,5 +242,4 @@ Partial Class Reservation
     Friend WithEvents BoxMonth As System.Windows.Forms.NumericUpDown
     Friend WithEvents BoxYear As System.Windows.Forms.NumericUpDown
     Friend WithEvents MenuStrip2 As System.Windows.Forms.MenuStrip
-    Friend WithEvents VoirMesRéservationsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

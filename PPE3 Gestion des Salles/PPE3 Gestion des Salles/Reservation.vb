@@ -20,14 +20,19 @@
             MessageBox.Show(ex.Message)
         End Try
 
-        Dim query As String = "SELECT ID_SALLE FROM SALLE"
+        Dim queryNomSalle As String = "SELECT ID_SALLE, NOM_SALLE FROM SALLE"
         myCommand.Connection = myConnection
-        myCommand.CommandText = query
+        myCommand.CommandText = queryNomSalle
         myReader = myCommand.ExecuteReader
+        Dim values As New Dictionary(Of Integer, String)
 
         While myReader.Read
-            Me.ListeSalles.Items.Add(myReader.GetString(0))
+            values.Add(myReader.GetString(0), myReader.GetString(1))
         End While
+
+        Me.ListeSalles.DataSource = New BindingSource(values, Nothing)
+        Me.ListeSalles.DisplayMember = "Value"
+        Me.ListeSalles.ValueMember = "Key"
 
         myConnection.Close()
         myConnection.Open()
@@ -73,7 +78,7 @@
         Dim idSalle = Me.ListeSalles.SelectedItem.ToString
 
         Try
-            Dim query As String = "INSERT INTO RESERVATION (ID_SALLE, ID_EMPLOYE, ID_ETAT, DATEDEBUT, LIBELLERESERVATION) VALUES (" & idSalle & ", 1, 1, TO_DATE('" & horaire_day & "-" & horaire_month & "-" & horaire_year & " " & horaire_hour & ":00:00', 'DD-MM-YYYY HH24:MI:SS'),'" & Libelle & "');"
+            Dim query As String = "INSERT INTO RESERVATION (ID_SALLE, ID_EMPLOYE, ID_ETAT, DATEDEBUT, LIBELLERESERVATION) VALUES (" & idSalle & ", " & Main.idEmploye & ", 1, TO_DATE('" & horaire_day & "-" & horaire_month & "-" & horaire_year & " " & horaire_hour & ":00:00', 'DD-MM-YYYY HH24:MI:SS'),'" & Libelle & "');"
             myCommand.Connection = myConnection
             myCommand.CommandText = query
             myReader = myCommand.ExecuteReader
@@ -90,7 +95,4 @@
     End Sub
 
 
-    Private Sub VoirMesRéservationsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles VoirMesRéservationsToolStripMenuItem.Click
-        VoirReservations.ShowDialog()
-    End Sub
 End Class

@@ -21,7 +21,7 @@
             MessageBox.Show(ex.Message)
         End Try
 
-        Dim query As String = "SELECT NOM_SALLE, DATEDEBUT, DATEFIN FROM RESERVATION, SALLE WHERE salle.id_salle = RESERVATION.ID_SALLE AND RESERVATION.ID_EMPLOYE = 1"
+        Dim query As String = "SELECT NOM_SALLE, DATEDEBUT, DATEFIN FROM RESERVATION, SALLE WHERE salle.id_salle = RESERVATION.ID_SALLE AND RESERVATION.ID_EMPLOYE = " & Main.idEmploye & ""
         myCommand.Connection = myConnection
         myCommand.CommandText = query
         myReader = myCommand.ExecuteReader

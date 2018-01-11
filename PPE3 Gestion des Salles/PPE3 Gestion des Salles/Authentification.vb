@@ -51,9 +51,12 @@
             myReader = myCommand.ExecuteReader
 
             Do While myReader.Read()
+                Main.idEmploye = myReader.GetString(0)
                 login_sql = myReader.GetString(3)
                 password_sql = myReader.GetString(4)
             Loop
+
+
 
             myReader.Close()
 
@@ -80,9 +83,8 @@
 
             ElseIf (login_sql = login And password_sql = password) Then
 
-
-                RechercheSalles.ShowDialog()
-                Me.Close()
+                RechercheSalles.Show()
+                'Me.Close()
             End If
 
         End If

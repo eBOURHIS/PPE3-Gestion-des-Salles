@@ -34,8 +34,8 @@ Partial Class RechercheSalles
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MonProfileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DéconnexionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConsulterLagendaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PlusDeRechercheTool = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RéserverUneSalleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LabelTableauSalles = New System.Windows.Forms.Label()
         Me.TableauHorairesDispo = New System.Windows.Forms.DataGridView()
         Me.ListeSalles = New System.Windows.Forms.ComboBox()
@@ -55,7 +55,6 @@ Partial Class RechercheSalles
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.RéserverUneSalleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.TableauHorairesDispo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,7 +79,7 @@ Partial Class RechercheSalles
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MonProfileToolStripMenuItem, Me.DéconnexionToolStripMenuItem, Me.ConsulterLagendaToolStripMenuItem, Me.PlusDeRechercheTool, Me.RéserverUneSalleToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MonProfileToolStripMenuItem, Me.DéconnexionToolStripMenuItem, Me.PlusDeRechercheTool, Me.RéserverUneSalleToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(848, 33)
@@ -102,19 +101,20 @@ Partial Class RechercheSalles
         Me.DéconnexionToolStripMenuItem.Size = New System.Drawing.Size(123, 29)
         Me.DéconnexionToolStripMenuItem.Text = "Déconnexion"
         '
-        'ConsulterLagendaToolStripMenuItem
-        '
-        Me.ConsulterLagendaToolStripMenuItem.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ConsulterLagendaToolStripMenuItem.Name = "ConsulterLagendaToolStripMenuItem"
-        Me.ConsulterLagendaToolStripMenuItem.Size = New System.Drawing.Size(163, 29)
-        Me.ConsulterLagendaToolStripMenuItem.Text = "Consulter l'agenda"
-        '
         'PlusDeRechercheTool
         '
         Me.PlusDeRechercheTool.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PlusDeRechercheTool.Name = "PlusDeRechercheTool"
         Me.PlusDeRechercheTool.Size = New System.Drawing.Size(188, 29)
         Me.PlusDeRechercheTool.Text = "Voir mes réservations"
+        '
+        'RéserverUneSalleToolStripMenuItem
+        '
+        Me.RéserverUneSalleToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RéserverUneSalleToolStripMenuItem.Name = "RéserverUneSalleToolStripMenuItem"
+        Me.RéserverUneSalleToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.RéserverUneSalleToolStripMenuItem.Size = New System.Drawing.Size(175, 29)
+        Me.RéserverUneSalleToolStripMenuItem.Text = "Réserver une salle"
         '
         'LabelTableauSalles
         '
@@ -331,14 +331,6 @@ Partial Class RechercheSalles
         Me.PictureBox1.TabIndex = 59
         Me.PictureBox1.TabStop = False
         '
-        'RéserverUneSalleToolStripMenuItem
-        '
-        Me.RéserverUneSalleToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RéserverUneSalleToolStripMenuItem.Name = "RéserverUneSalleToolStripMenuItem"
-        Me.RéserverUneSalleToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.RéserverUneSalleToolStripMenuItem.Size = New System.Drawing.Size(175, 29)
-        Me.RéserverUneSalleToolStripMenuItem.Text = "Réserver une salle"
-        '
         'RechercheSalles
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -384,7 +376,6 @@ Partial Class RechercheSalles
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents MonProfileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DéconnexionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ConsulterLagendaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LabelTableauSalles As System.Windows.Forms.Label
     Friend WithEvents TableauHorairesDispo As System.Windows.Forms.DataGridView
     Friend WithEvents ListeSalles As System.Windows.Forms.ComboBox
