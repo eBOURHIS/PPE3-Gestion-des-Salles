@@ -1,4 +1,4 @@
-﻿Imports System.Data.DataTable
+Imports System.Data.DataTable
 
 Public Class RechercheSalles
 
@@ -137,5 +137,16 @@ Public Class RechercheSalles
 
     Private Sub RéserverUneSalleToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RéserverUneSalleToolStripMenuItem.Click
         Reservation.ShowDialog()
+    End Sub
+
+    Private Sub DéconnexionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DéconnexionToolStripMenuItem.Click
+
+        Dim result As Integer = MessageBox.Show("Se déconnecter et quitter ?", "Se déconnecter", MessageBoxButtons.YesNo)
+        If result = DialogResult.No Then
+
+        ElseIf result = DialogResult.Yes Then
+            Application.Exit()
+        End If
+
     End Sub
 End Class
