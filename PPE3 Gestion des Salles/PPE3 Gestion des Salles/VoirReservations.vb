@@ -21,7 +21,7 @@
             MessageBox.Show(ex.Message)
         End Try
 
-        Dim query As String = "SELECT NOM_SALLE, DATEDEBUT, DATEFIN, LIBELLERESERVATION, RESERVATION.ID_SALLE FROM RESERVATION, SALLE WHERE salle.id_salle = RESERVATION.ID_SALLE AND RESERVATION.ID_EMPLOYE = " & Main.idEmploye & ""
+        Dim query As String = "SELECT RESERVATION.ID_SALLE, NOM_SALLE, DATEDEBUT, DATEFIN, LIBELLERESERVATION FROM RESERVATION, SALLE WHERE salle.id_salle = RESERVATION.ID_SALLE AND RESERVATION.ID_EMPLOYE = " & Main.idEmploye & ""
         myCommand.Connection = myConnection
         myCommand.CommandText = query
         myReader = myCommand.ExecuteReader
@@ -41,15 +41,19 @@
     End Sub
 
     Private Sub MesReservations_CellMouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles MesReservations.CellMouseDoubleClick
-
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
             Dim selectedRow = Me.MesReservations.Rows(e.RowIndex)
+            Dim values As New Collection
+            For i As Integer = 0 To Me.MesReservations.ColumnCount - 1
+                ' Debug.Print(selectedRow.Cells.Item(i).Value.ToString())
+                values.Add(selectedRow.Cells.Item(i).Value.ToString())
+            Next
 
-            Select Case MsgBox("Voulez supprimez cette réservation ?", MsgBoxStyle.YesNo, "caption")
+            Select Case MsgBox("Voulez vous supprimer cette réservation ?", MsgBoxStyle.YesNo, "caption")
                 Case MsgBoxResult.Yes
                     Try
                         myConnection.Open()
-                        Dim queryGetId As String = "DELETE * FROM RESERVATION;"
+                        Dim queryGetId As String = "DELETE * FROM RESERVATION WHERE ID_SALLE = '" & values(1) & "' AND DATEDEBUT = '" & values(3) & "'"
                         myCommand.Connection = myConnection
                         myCommand.CommandText = queryGetId
                         myReader = myCommand.ExecuteReader
