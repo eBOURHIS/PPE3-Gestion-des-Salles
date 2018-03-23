@@ -35,6 +35,7 @@
         Me.MesReservations.Columns(1).HeaderText = "Date de début"
         Me.MesReservations.Columns(2).HeaderText = "Date de fin"
         Me.MesReservations.Columns(2).HeaderText = "Commentaire"
+        Me.Info.Text = "Connecté : " & Main.nomEmploye & " " & Main.prenomEmploye
 
         myConnection.Close()
 

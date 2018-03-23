@@ -38,6 +38,7 @@ Partial Class Reservation
         Me.BoxMonth = New System.Windows.Forms.NumericUpDown()
         Me.BoxYear = New System.Windows.Forms.NumericUpDown()
         Me.MenuStrip2 = New System.Windows.Forms.MenuStrip()
+        Me.Info = New System.Windows.Forms.Label()
         CType(Me.BoxHour, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BoxDay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BoxMonth, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -194,11 +195,20 @@ Partial Class Reservation
         Me.MenuStrip2.TabIndex = 67
         Me.MenuStrip2.Text = "MenuStrip2"
         '
+        'Info
+        '
+        Me.Info.AutoSize = True
+        Me.Info.Location = New System.Drawing.Point(676, 9)
+        Me.Info.Name = "Info"
+        Me.Info.Size = New System.Drawing.Size(0, 13)
+        Me.Info.TabIndex = 68
+        '
         'Reservation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(864, 279)
+        Me.Controls.Add(Me.Info)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -242,4 +252,5 @@ Partial Class Reservation
     Friend WithEvents BoxMonth As System.Windows.Forms.NumericUpDown
     Friend WithEvents BoxYear As System.Windows.Forms.NumericUpDown
     Friend WithEvents MenuStrip2 As System.Windows.Forms.MenuStrip
+    Friend WithEvents Info As System.Windows.Forms.Label
 End Class

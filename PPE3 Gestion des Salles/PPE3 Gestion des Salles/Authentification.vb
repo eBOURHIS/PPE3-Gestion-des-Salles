@@ -52,6 +52,8 @@
 
             Do While myReader.Read()
                 Main.idEmploye = myReader.GetString(0)
+                Main.nomEmploye = myReader.GetString(1)
+                Main.prenomEmploye = myReader.GetString(2)
                 login_sql = myReader.GetString(3)
                 password_sql = myReader.GetString(4)
             Loop

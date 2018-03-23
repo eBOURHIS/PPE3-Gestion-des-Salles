@@ -25,6 +25,7 @@ Partial Class VoirReservations
         Me.MesReservations = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Info = New System.Windows.Forms.Label()
         CType(Me.MesReservations, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -55,11 +56,20 @@ Partial Class VoirReservations
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Double cliquez sur une cellule pour supprimer/modifier la réservation associée"
         '
+        'Info
+        '
+        Me.Info.AutoSize = True
+        Me.Info.Location = New System.Drawing.Point(570, 22)
+        Me.Info.Name = "Info"
+        Me.Info.Size = New System.Drawing.Size(0, 13)
+        Me.Info.TabIndex = 3
+        '
         'VoirReservations
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(667, 560)
+        Me.Controls.Add(Me.Info)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MesReservations)
@@ -73,4 +83,5 @@ Partial Class VoirReservations
     Friend WithEvents MesReservations As System.Windows.Forms.DataGridView
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Info As System.Windows.Forms.Label
 End Class

@@ -36,7 +36,7 @@ Public Class RechercheSalles
 
         '----------------------------------------------------
 
-
+        Me.Label7.Text = "Connecté : " & Main.nomEmploye & " " & Main.prenomEmploye
         Me.BoxYear.Maximum = Date.Today.Year + 1
         Me.BoxYear.Minimum = Date.Today.Year
         Me.BoxYear.Value = Date.Today.Year

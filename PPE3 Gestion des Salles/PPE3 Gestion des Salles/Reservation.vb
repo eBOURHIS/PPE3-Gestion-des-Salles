@@ -36,7 +36,7 @@
 
         myConnection.Close()
 
-
+        Me.Info.Text = "Connecté : " & Main.nomEmploye & " " & Main.prenomEmploye
         Me.BoxYear.Maximum = Date.Today.Year + 1
         Me.BoxYear.Minimum = Date.Today.Year
         Me.BoxYear.Value = Date.Today.Year
@@ -75,7 +75,6 @@
         Dim horaire_hour As String = Me.BoxHour.Value
 
         Dim Libelle = Me.DescriptionBox.Text
-        'Dim idSalle = Me.ListeSalles.SelectedItem.ToString
         Dim idSalle = Me.ListeSalles.SelectedValue.ToString
         Try
             Dim query As String = "INSERT INTO RESERVATION (ID_SALLE, ID_EMPLOYE, ID_ETAT, DATEDEBUT, LIBELLERESERVATION) VALUES (" & idSalle & ", " & Main.idEmploye & ", 1, TO_DATE('" & horaire_day & "-" & horaire_month & "-" & horaire_year & " " & horaire_hour & ":00:00', 'DD-MM-YYYY HH24:MI:SS'),'" & Libelle & "');"
