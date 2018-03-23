@@ -7,6 +7,6 @@ Logiciel de gestion de salles pour GSB
 - [ ] Résoudre bug de rafraîchissement du datagrid de recherche de salles
 - [x] Get les noms des salles pour l'inscriptions (actuellement les id sont affichés)
 - [ ] Refaire le design (parce que c'est moche)
-- [ ] Ajout de la supression des réservations (en cours)
+- [x] Ajout de la supression des réservations
 - [ ] Ajout de la modification des réservations
 
