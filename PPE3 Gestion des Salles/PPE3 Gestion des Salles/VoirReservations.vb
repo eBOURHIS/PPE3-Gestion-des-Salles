@@ -46,15 +46,15 @@
             Dim selectedRow = Me.MesReservations.Rows(e.RowIndex)
             Dim values As New Collection
             For i As Integer = 0 To Me.MesReservations.ColumnCount - 1
-                ' Debug.Print(selectedRow.Cells.Item(i).Value.ToString())
+                Debug.Print(selectedRow.Cells.Item(i).Value.ToString())
                 values.Add(selectedRow.Cells.Item(i).Value.ToString())
             Next
-
-            Select Case MsgBox("Voulez vous supprimer cette réservation ?", MsgBoxStyle.YesNo, "caption")
+            myConnection.Open()
+            Select Case MsgBox("Voulez vous supprimer cette réservation ?", MsgBoxStyle.YesNo, "Supprimer une réservation")
                 Case MsgBoxResult.Yes
                     Try
-                        myConnection.Open()
-                        Dim queryGetId As String = "DELETE * FROM RESERVATION WHERE ID_SALLE = '" & values(1) & "' AND DATEDEBUT = '" & values(3) & "'"
+                        Dim queryGetId As String = "DELETE FROM RESERVATION WHERE ID_SALLE = '" & values(1) & "' AND DATEDEBUT = to_date('" & values(3) & "','DD-MM-YYYY HH24:MI:SS')"
+                        Debug.Print(queryGetId)
                         myCommand.Connection = myConnection
                         myCommand.CommandText = queryGetId
                         myReader = myCommand.ExecuteReader
