@@ -52,7 +52,7 @@
         ElseIf Today.Date.Month = 2 Then
             Me.BoxDay.Maximum = 28
         Else
-            Me.BoxDay.Maximum = 31
+            Me.BoxDay.Maximum = 30
         End If
 
         Me.BoxDay.Minimum = Date.Today.Day
@@ -86,7 +86,7 @@
             MsgBox("Erreur !")
         End Try
 
-        Me.DescriptionBox.Text = idSalle
+
 
         myConnection.Close()
         myConnection.Open()
