@@ -62,6 +62,7 @@
     End Sub
 
     Private Sub BoutonReservationValide_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BoutonReservationValide.Click
+        myConnection.Close()
         myConnection.Open()
 
         Dim horaire_year As String = Me.BoxYear.Value

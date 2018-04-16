@@ -22,21 +22,12 @@ Partial Class VoirReservations
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.MesReservations = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Info = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.MesReservations = New System.Windows.Forms.DataGridView()
         CType(Me.MesReservations, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'MesReservations
-        '
-        Me.MesReservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.MesReservations.Location = New System.Drawing.Point(12, 60)
-        Me.MesReservations.Name = "MesReservations"
-        Me.MesReservations.Size = New System.Drawing.Size(640, 462)
-        Me.MesReservations.TabIndex = 0
         '
         'Label1
         '
@@ -50,11 +41,11 @@ Partial Class VoirReservations
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(164, 569)
+        Me.Label2.Location = New System.Drawing.Point(165, 539)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(323, 13)
+        Me.Label2.Size = New System.Drawing.Size(364, 13)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Double cliquez sur une ligne pour supprimer la réservation associée"
+        Me.Label2.Text = "Double cliquez sur une ligne pour modifier/supprimer la réservation associée"
         '
         'Info
         '
@@ -64,21 +55,19 @@ Partial Class VoirReservations
         Me.Info.Size = New System.Drawing.Size(0, 13)
         Me.Info.TabIndex = 3
         '
-        'Label3
+        'MesReservations
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(164, 534)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(340, 13)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Cliquez une seul fois sur une ligne pour modifier la réservation associée"
+        Me.MesReservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.MesReservations.Location = New System.Drawing.Point(12, 60)
+        Me.MesReservations.Name = "MesReservations"
+        Me.MesReservations.Size = New System.Drawing.Size(640, 462)
+        Me.MesReservations.TabIndex = 0
         '
         'VoirReservations
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(667, 591)
-        Me.Controls.Add(Me.Label3)
+        Me.ClientSize = New System.Drawing.Size(667, 570)
         Me.Controls.Add(Me.Info)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -90,9 +79,8 @@ Partial Class VoirReservations
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents MesReservations As System.Windows.Forms.DataGridView
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Info As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents MesReservations As System.Windows.Forms.DataGridView
 End Class
