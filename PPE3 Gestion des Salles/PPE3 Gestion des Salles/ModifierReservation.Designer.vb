@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Reservation
+Partial Class ModifierReservation
     Inherits System.Windows.Forms.Form
 
     'Form remplace la méthode Dispose pour nettoyer la liste des composants.
@@ -22,12 +22,10 @@ Partial Class Reservation
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ListeSalles = New System.Windows.Forms.ComboBox()
+        Me.Info = New System.Windows.Forms.Label()
         Me.LabelListeSalles = New System.Windows.Forms.Label()
+        Me.ListeSalles = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.BoutonReservationValide = New System.Windows.Forms.Button()
-        Me.DescriptionBox = New System.Windows.Forms.RichTextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -36,161 +34,203 @@ Partial Class Reservation
         Me.BoxDay = New System.Windows.Forms.NumericUpDown()
         Me.BoxMonth = New System.Windows.Forms.NumericUpDown()
         Me.BoxYear = New System.Windows.Forms.NumericUpDown()
-        Me.Info = New System.Windows.Forms.Label()
+        Me.DescriptionBox = New System.Windows.Forms.RichTextBox()
+        Me.BoutonReservationValide = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.ListeSallesModif = New System.Windows.Forms.ComboBox()
+        Me.oldsallename = New System.Windows.Forms.Label()
         CType(Me.BoxHour, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BoxDay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BoxMonth, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BoxYear, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'ListeSalles
+        'Info
         '
-        Me.ListeSalles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ListeSalles.FormattingEnabled = True
-        Me.ListeSalles.Location = New System.Drawing.Point(12, 99)
-        Me.ListeSalles.Name = "ListeSalles"
-        Me.ListeSalles.Size = New System.Drawing.Size(121, 21)
-        Me.ListeSalles.TabIndex = 0
+        Me.Info.AutoSize = True
+        Me.Info.Location = New System.Drawing.Point(511, -2)
+        Me.Info.Name = "Info"
+        Me.Info.Size = New System.Drawing.Size(0, 13)
+        Me.Info.TabIndex = 83
         '
         'LabelListeSalles
         '
         Me.LabelListeSalles.AutoSize = True
         Me.LabelListeSalles.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelListeSalles.Location = New System.Drawing.Point(12, 59)
+        Me.LabelListeSalles.Location = New System.Drawing.Point(-153, 48)
         Me.LabelListeSalles.Name = "LabelListeSalles"
-        Me.LabelListeSalles.Size = New System.Drawing.Size(125, 20)
-        Me.LabelListeSalles.TabIndex = 1
-        Me.LabelListeSalles.Text = "Modifier la salle :"
+        Me.LabelListeSalles.Size = New System.Drawing.Size(160, 20)
+        Me.LabelListeSalles.TabIndex = 70
+        Me.LabelListeSalles.Text = "Choisissez une salle :"
+        '
+        'ListeSalles
+        '
+        Me.ListeSalles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ListeSalles.FormattingEnabled = True
+        Me.ListeSalles.Location = New System.Drawing.Point(-153, 88)
+        Me.ListeSalles.Name = "ListeSalles"
+        Me.ListeSalles.Size = New System.Drawing.Size(121, 21)
+        Me.ListeSalles.TabIndex = 69
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(233, 47)
+        Me.Label1.Location = New System.Drawing.Point(682, 20)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(132, 20)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Modifier l'horaire :"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(451, 47)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(318, 20)
-        Me.Label2.TabIndex = 6
-        Me.Label2.Text = "Entrez une nouvelle description (Facultatif) :"
-        '
-        'BoutonReservationValide
-        '
-        Me.BoutonReservationValide.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BoutonReservationValide.Location = New System.Drawing.Point(599, 200)
-        Me.BoutonReservationValide.Name = "BoutonReservationValide"
-        Me.BoutonReservationValide.Size = New System.Drawing.Size(107, 47)
-        Me.BoutonReservationValide.TabIndex = 7
-        Me.BoutonReservationValide.Text = "Réserver"
-        Me.BoutonReservationValide.UseVisualStyleBackColor = True
-        '
-        'DescriptionBox
-        '
-        Me.DescriptionBox.Location = New System.Drawing.Point(455, 77)
-        Me.DescriptionBox.Name = "DescriptionBox"
-        Me.DescriptionBox.Size = New System.Drawing.Size(386, 108)
-        Me.DescriptionBox.TabIndex = 8
-        Me.DescriptionBox.Text = ""
+        Me.Label1.Size = New System.Drawing.Size(0, 13)
+        Me.Label1.TabIndex = 98
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(302, 134)
+        Me.Label6.Location = New System.Drawing.Point(308, 145)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(106, 21)
-        Me.Label6.TabIndex = 66
+        Me.Label6.TabIndex = 97
         Me.Label6.Text = "Heure (24h)"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(192, 134)
+        Me.Label5.Location = New System.Drawing.Point(198, 145)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(45, 21)
-        Me.Label5.TabIndex = 65
+        Me.Label5.TabIndex = 96
         Me.Label5.Text = "Jour"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(328, 74)
+        Me.Label4.Location = New System.Drawing.Point(334, 85)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(48, 21)
-        Me.Label4.TabIndex = 64
+        Me.Label4.TabIndex = 95
         Me.Label4.Text = "Mois"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(191, 74)
+        Me.Label3.Location = New System.Drawing.Point(197, 85)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(59, 21)
-        Me.Label3.TabIndex = 63
+        Me.Label3.TabIndex = 94
         Me.Label3.Text = "Année"
         '
         'BoxHour
         '
         Me.BoxHour.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BoxHour.Location = New System.Drawing.Point(297, 158)
+        Me.BoxHour.Location = New System.Drawing.Point(303, 169)
         Me.BoxHour.Name = "BoxHour"
         Me.BoxHour.ReadOnly = True
         Me.BoxHour.Size = New System.Drawing.Size(120, 25)
-        Me.BoxHour.TabIndex = 62
+        Me.BoxHour.TabIndex = 93
         '
         'BoxDay
         '
         Me.BoxDay.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BoxDay.Location = New System.Drawing.Point(163, 158)
+        Me.BoxDay.Location = New System.Drawing.Point(169, 169)
         Me.BoxDay.Name = "BoxDay"
         Me.BoxDay.ReadOnly = True
         Me.BoxDay.Size = New System.Drawing.Size(120, 25)
-        Me.BoxDay.TabIndex = 61
+        Me.BoxDay.TabIndex = 92
         '
         'BoxMonth
         '
         Me.BoxMonth.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BoxMonth.Location = New System.Drawing.Point(297, 98)
+        Me.BoxMonth.Location = New System.Drawing.Point(303, 109)
         Me.BoxMonth.Name = "BoxMonth"
         Me.BoxMonth.ReadOnly = True
         Me.BoxMonth.Size = New System.Drawing.Size(120, 25)
-        Me.BoxMonth.TabIndex = 60
+        Me.BoxMonth.TabIndex = 91
         '
         'BoxYear
         '
         Me.BoxYear.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BoxYear.Location = New System.Drawing.Point(163, 98)
+        Me.BoxYear.Location = New System.Drawing.Point(169, 109)
         Me.BoxYear.Maximum = New Decimal(New Integer() {0, 0, 0, 0})
         Me.BoxYear.Name = "BoxYear"
         Me.BoxYear.ReadOnly = True
         Me.BoxYear.Size = New System.Drawing.Size(120, 25)
-        Me.BoxYear.TabIndex = 59
+        Me.BoxYear.TabIndex = 90
         '
-        'Info
+        'DescriptionBox
         '
-        Me.Info.AutoSize = True
-        Me.Info.Location = New System.Drawing.Point(676, 9)
-        Me.Info.Name = "Info"
-        Me.Info.Size = New System.Drawing.Size(0, 13)
-        Me.Info.TabIndex = 68
+        Me.DescriptionBox.Location = New System.Drawing.Point(461, 88)
+        Me.DescriptionBox.Name = "DescriptionBox"
+        Me.DescriptionBox.Size = New System.Drawing.Size(386, 108)
+        Me.DescriptionBox.TabIndex = 89
+        Me.DescriptionBox.Text = ""
         '
-        'Reservation
+        'BoutonReservationValide
+        '
+        Me.BoutonReservationValide.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BoutonReservationValide.Location = New System.Drawing.Point(569, 211)
+        Me.BoutonReservationValide.Name = "BoutonReservationValide"
+        Me.BoutonReservationValide.Size = New System.Drawing.Size(185, 47)
+        Me.BoutonReservationValide.TabIndex = 88
+        Me.BoutonReservationValide.Text = "Modifier la réservation"
+        Me.BoutonReservationValide.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(457, 58)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(256, 20)
+        Me.Label2.TabIndex = 87
+        Me.Label2.Text = "Entrez une description (Facultatif) :"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(214, 58)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(168, 20)
+        Me.Label7.TabIndex = 86
+        Me.Label7.Text = "Choisissez un horaire :"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(18, 70)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(160, 20)
+        Me.Label8.TabIndex = 85
+        Me.Label8.Text = "Choisissez une salle :"
+        '
+        'ListeSallesModif
+        '
+        Me.ListeSallesModif.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ListeSallesModif.FormattingEnabled = True
+        Me.ListeSallesModif.Location = New System.Drawing.Point(18, 110)
+        Me.ListeSallesModif.Name = "ListeSallesModif"
+        Me.ListeSallesModif.Size = New System.Drawing.Size(121, 21)
+        Me.ListeSallesModif.TabIndex = 84
+        '
+        'oldsallename
+        '
+        Me.oldsallename.AutoSize = True
+        Me.oldsallename.Location = New System.Drawing.Point(325, 133)
+        Me.oldsallename.Name = "oldsallename"
+        Me.oldsallename.Size = New System.Drawing.Size(0, 13)
+        Me.oldsallename.TabIndex = 99
+        '
+        'ModifierReservation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(864, 279)
-        Me.Controls.Add(Me.Info)
+        Me.Controls.Add(Me.oldsallename)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -202,11 +242,14 @@ Partial Class Reservation
         Me.Controls.Add(Me.DescriptionBox)
         Me.Controls.Add(Me.BoutonReservationValide)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.ListeSallesModif)
+        Me.Controls.Add(Me.Info)
         Me.Controls.Add(Me.LabelListeSalles)
         Me.Controls.Add(Me.ListeSalles)
-        Me.Name = "Reservation"
-        Me.Text = "Reservation"
+        Me.Name = "ModifierReservation"
+        Me.Text = "UpdateReservation"
         CType(Me.BoxHour, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BoxDay, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BoxMonth, System.ComponentModel.ISupportInitialize).EndInit()
@@ -215,12 +258,10 @@ Partial Class Reservation
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents ListeSalles As System.Windows.Forms.ComboBox
+    Friend WithEvents Info As System.Windows.Forms.Label
     Friend WithEvents LabelListeSalles As System.Windows.Forms.Label
+    Friend WithEvents ListeSalles As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents BoutonReservationValide As System.Windows.Forms.Button
-    Friend WithEvents DescriptionBox As System.Windows.Forms.RichTextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
@@ -229,5 +270,11 @@ Partial Class Reservation
     Friend WithEvents BoxDay As System.Windows.Forms.NumericUpDown
     Friend WithEvents BoxMonth As System.Windows.Forms.NumericUpDown
     Friend WithEvents BoxYear As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Info As System.Windows.Forms.Label
+    Friend WithEvents DescriptionBox As System.Windows.Forms.RichTextBox
+    Friend WithEvents BoutonReservationValide As System.Windows.Forms.Button
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents ListeSallesModif As System.Windows.Forms.ComboBox
+    Friend WithEvents oldsallename As System.Windows.Forms.Label
 End Class

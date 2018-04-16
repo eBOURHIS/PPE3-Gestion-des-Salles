@@ -29,7 +29,6 @@ Partial Class RechercheSalles
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RechercheSalles))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.DéconnexionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -53,7 +52,6 @@ Partial Class RechercheSalles
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.TableauHorairesDispo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -64,7 +62,6 @@ Partial Class RechercheSalles
         CType(Me.BoxMonth, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BoxDay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BoxHour, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -188,6 +185,7 @@ Partial Class RechercheSalles
         'TableauSallesDispo
         '
         Me.TableauSallesDispo.AllowDrop = True
+        Me.TableauSallesDispo.AllowUserToAddRows = False
         Me.TableauSallesDispo.AllowUserToDeleteRows = False
         Me.TableauSallesDispo.BackgroundColor = System.Drawing.Color.SlateGray
         Me.TableauSallesDispo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
@@ -313,21 +311,10 @@ Partial Class RechercheSalles
         Me.Label6.TabIndex = 58
         Me.Label6.Text = "Heure (24h)"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(195, 228)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(62, 49)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 59
-        Me.PictureBox1.TabStop = False
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(630, 40)
+        Me.Label7.Location = New System.Drawing.Point(543, 9)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(0, 13)
         Me.Label7.TabIndex = 60
@@ -338,7 +325,6 @@ Partial Class RechercheSalles
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(848, 678)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -369,7 +355,6 @@ Partial Class RechercheSalles
         CType(Me.BoxMonth, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BoxDay, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BoxHour, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -396,7 +381,6 @@ Partial Class RechercheSalles
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents RéserverUneSalleToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Label7 As System.Windows.Forms.Label
 

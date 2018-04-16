@@ -90,12 +90,6 @@
     <Compile Include="Reservation.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VerificationEtatSalle.Designer.vb">
-      <DependentUpon>VerificationEtatSalle.vb</DependentUpon>
-    </Compile>
-    <Compile Include="VerificationEtatSalle.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="RechercheSalles.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +112,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ModifierReservation.Designer.vb">
+      <DependentUpon>ModifierReservation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierReservation.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VoirReservations.Designer.vb">
       <DependentUpon>VoirReservations.vb</DependentUpon>
     </Compile>
@@ -132,9 +132,6 @@
     <EmbeddedResource Include="Reservation.resx">
       <DependentUpon>Reservation.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VerificationEtatSalle.resx">
-      <DependentUpon>VerificationEtatSalle.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="RechercheSalles.resx">
       <DependentUpon>RechercheSalles.vb</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +140,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierReservation.resx">
+      <DependentUpon>ModifierReservation.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VoirReservations.resx">
       <DependentUpon>VoirReservations.vb</DependentUpon>

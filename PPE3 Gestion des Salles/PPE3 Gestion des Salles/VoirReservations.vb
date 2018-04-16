@@ -8,7 +8,6 @@
     Dim connString As String
     Dim donnee As DataTable
 
-
     Private Sub VoirReservations_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         connString = "DSN=ORA13;Uid=Admin_GSB;Pwd=estran;"
@@ -21,6 +20,8 @@
             MessageBox.Show(ex.Message)
         End Try
 
+        MesReservations.MultiSelect = False
+
         Dim query As String = "SELECT RESERVATION.ID_SALLE, NOM_SALLE, DATEDEBUT, DATEFIN, LIBELLERESERVATION FROM RESERVATION, SALLE WHERE salle.id_salle = RESERVATION.ID_SALLE AND RESERVATION.ID_EMPLOYE = " & Main.idEmploye & ""
         myCommand.Connection = myConnection
         myCommand.CommandText = query
@@ -30,12 +31,14 @@
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
         myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
         myAdapter.Fill(donnee)
+        Me.MesReservations.Refresh()
+        Me.MesReservations.DataSource = vbNull
         Me.MesReservations.DataSource = donnee
-        Me.MesReservations.Columns(0).HeaderText = "Salle"
-        Me.MesReservations.Columns(1).HeaderText = "Date de début"
-        Me.MesReservations.Columns(2).HeaderText = "Date de fin"
-        Me.MesReservations.Columns(2).HeaderText = "Commentaire"
-        Me.Info.Text = "Connecté : " & Main.nomEmploye & " " & Main.prenomEmploye
+        Me.MesReservations.Columns(1).HeaderText = "Salle"
+        Me.MesReservations.Columns(2).HeaderText = "Date de début"
+        Me.MesReservations.Columns(3).HeaderText = "Date de fin"
+        Me.MesReservations.Columns(4).HeaderText = "Commentaire"
+        Me.Label1.Text = "Voici toutes vos réservations " & Main.prenomEmploye
 
         myConnection.Close()
 
@@ -63,11 +66,17 @@
                         MessageBox.Show("Erreur !")
                     End Try
                 Case MsgBoxResult.No
-                    MessageBox.Show("Opération annulée.")
+                    Select Case MsgBox("Voulez vous modifier cette réservation ?", MsgBoxStyle.YesNo, "Modifier une réservation")
+                        Case MsgBoxResult.Yes
+                            ModifierReservation.ShowDialog()
+                        Case MsgBoxResult.No
+                            MessageBox.Show("Opération annulée.")
+                    End Select
+
             End Select
-            myConnection.Close()
+
         End If
-
-
+        myConnection.Close()
     End Sub
+
 End Class
