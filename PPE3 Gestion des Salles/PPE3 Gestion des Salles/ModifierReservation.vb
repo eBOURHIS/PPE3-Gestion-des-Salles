@@ -1,12 +1,10 @@
-﻿Public Class Reservation
-    Dim table As New DataTable("Table")
+﻿Public Class ModifierReservation
     Dim myConnection As New Odbc.OdbcConnection
     Dim myCommand As New Odbc.OdbcCommand
     Dim myReader As Odbc.OdbcDataReader
     Dim myAdapter As Odbc.OdbcDataAdapter
     Dim myBuilder As Odbc.OdbcCommandBuilder
     Dim connString As String
-    Dim donnee As DataTable
 
     Private Sub Reservation_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
@@ -30,9 +28,9 @@
             values.Add(myReader.GetString(0), myReader.GetString(1))
         End While
 
-        Me.ListeSalles.DataSource = New BindingSource(values, Nothing)
-        Me.ListeSalles.DisplayMember = "Value"
-        Me.ListeSalles.ValueMember = "Key"
+        Me.ListeSallesModif.DataSource = New BindingSource(values, Nothing)
+        Me.ListeSallesModif.DisplayMember = "Value"
+        Me.ListeSallesModif.ValueMember = "Key"
 
         myConnection.Close()
 
@@ -61,35 +59,31 @@
         Me.BoxHour.Minimum = 0
         Me.BoxHour.Value = Hour(Now())
 
-
-
     End Sub
 
     Private Sub BoutonReservationValide_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BoutonReservationValide.Click
-       
-      
+        myConnection.Open()
+
         Dim horaire_year As String = Me.BoxYear.Value
         Dim horaire_month As String = Me.BoxMonth.Value
         Dim horaire_day As String = Me.BoxDay.Value
         Dim horaire_hour As String = Me.BoxHour.Value
 
         Dim Libelle = Me.DescriptionBox.Text
-        Dim idSalle = Me.ListeSalles.SelectedValue.ToString
+        Dim idSalle = Me.ListeSallesModif.SelectedValue.ToString
         Try
-            Dim query As String = "INSERT INTO RESERVATION (ID_SALLE, ID_EMPLOYE, ID_ETAT, DATEDEBUT, LIBELLERESERVATION) VALUES (" & idSalle & ", " & Main.idEmploye & ", 1, TO_DATE('" & horaire_day & "-" & horaire_month & "-" & horaire_year & " " & horaire_hour & ":00:00', 'DD-MM-YYYY HH24:MI:SS'),'" & Libelle & "');"
+            Dim query As String = "UPDATE RESERVATION SET ID_SALLE = '" & idSalle & "', DATEDEBUT = TO_DATE('" & horaire_day & "-" & horaire_month & "-" & horaire_year & " " & horaire_hour & ":00:00', 'DD-MM-YYYY HH24:MI:SS'), LIBELLERESERVATION = '" & Libelle & "';"
             myCommand.Connection = myConnection
             myCommand.CommandText = query
             myReader = myCommand.ExecuteReader
-            MsgBox("Inscription effectuée !")
+            MsgBox("Inscription modifiée !")
         Catch ex As Exception
             MsgBox("Erreur !")
         End Try
 
-
-
         myConnection.Close()
         myConnection.Open()
-       
+
     End Sub
 
 End Class

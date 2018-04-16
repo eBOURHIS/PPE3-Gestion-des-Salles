@@ -45,8 +45,14 @@ Public Class RechercheSalles
         ' Me.BoxMonth.Maximum = Date.Today.Month
         Me.BoxMonth.Minimum = Date.Today.Month
 
-        ' Me.BoxDay.Maximum = Date.Today.Day
-        ' Me.BoxDay.Minimum = Date.Today.Day
+        Select Case Today.Date.Month
+            Case 1, 3, 5, 7, 8, 10, 12
+                Me.BoxDay.Maximum = 31
+            Case 2
+                Me.BoxDay.Maximum = 28
+            Case 4, 6, 9, 11
+                Me.BoxDay.Maximum = 30
+        End Select
         Me.BoxDay.Value = Date.Today.Day
 
         Me.BoxHour.Maximum = 23
