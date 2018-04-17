@@ -12,7 +12,7 @@ Public Class RechercheSalles
     Dim donnee As DataTable
 
     Private Sub RecherchesSalles_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+        myConnection.Close()
         connString = "DSN=ORA13;Uid=Admin_GSB;Pwd=estran;"
 
         myConnection.ConnectionString = connString
@@ -58,7 +58,7 @@ Public Class RechercheSalles
         Me.BoxHour.Maximum = 23
         Me.BoxHour.Minimum = 0
         Me.BoxHour.Value = Hour(Now())
-        '----------------------------------------------------
+
     End Sub
 
     Private Sub RechercheHoraire_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RechercheHoraire.Click

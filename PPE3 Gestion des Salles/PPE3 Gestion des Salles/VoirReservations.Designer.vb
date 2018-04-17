@@ -41,11 +41,12 @@ Partial Class VoirReservations
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(165, 539)
+        Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(101, 541)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(364, 13)
+        Me.Label2.Size = New System.Drawing.Size(470, 20)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Double cliquez sur une ligne pour modifier/supprimer la réservation associée"
+        Me.Label2.Text = "Double cliquez sur une ligne pour supprimer/modifier la réservation associée"
         '
         'Info
         '

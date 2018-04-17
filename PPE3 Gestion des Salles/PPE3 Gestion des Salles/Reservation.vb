@@ -9,7 +9,7 @@
     Dim donnee As DataTable
 
     Private Sub Reservation_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+        myConnection.Close()
         connString = "DSN=ORA13;Uid=Admin_GSB;Pwd=estran;"
 
         myConnection.ConnectionString = connString
@@ -33,8 +33,6 @@
         Me.ListeSalles.DataSource = New BindingSource(values, Nothing)
         Me.ListeSalles.DisplayMember = "Value"
         Me.ListeSalles.ValueMember = "Key"
-
-        myConnection.Close()
 
         Me.Info.Text = "Connecté : " & Main.nomEmploye & " " & Main.prenomEmploye
         Me.BoxYear.Maximum = Date.Today.Year + 1
@@ -61,13 +59,13 @@
         Me.BoxHour.Minimum = 0
         Me.BoxHour.Value = Hour(Now())
 
-
+        myConnection.Close()
+        myConnection.Open()
 
     End Sub
 
     Private Sub BoutonReservationValide_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BoutonReservationValide.Click
        
-      
         Dim horaire_year As String = Me.BoxYear.Value
         Dim horaire_month As String = Me.BoxMonth.Value
         Dim horaire_day As String = Me.BoxDay.Value
@@ -80,7 +78,7 @@
             myCommand.Connection = myConnection
             myCommand.CommandText = query
             myReader = myCommand.ExecuteReader
-            MsgBox("Inscription effectuée !")
+            MsgBox("Réservation effectuée !")
         Catch ex As Exception
             MsgBox("Erreur !")
         End Try
@@ -89,7 +87,7 @@
 
         myConnection.Close()
         myConnection.Open()
-       
+
     End Sub
 
 End Class

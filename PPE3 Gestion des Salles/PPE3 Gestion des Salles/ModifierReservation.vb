@@ -77,7 +77,7 @@
             myCommand.Connection = myConnection
             myCommand.CommandText = query
             myReader = myCommand.ExecuteReader
-            MsgBox("Inscription modifiée !")
+            MsgBox("Réservation modifiée !")
         Catch ex As Exception
             MsgBox("Erreur !")
         End Try

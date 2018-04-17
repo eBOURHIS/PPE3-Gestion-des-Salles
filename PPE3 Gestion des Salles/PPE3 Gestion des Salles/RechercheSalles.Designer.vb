@@ -67,10 +67,10 @@ Partial Class RechercheSalles
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(2, 377)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(239, 21)
+        Me.Label1.Size = New System.Drawing.Size(220, 23)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Rechercher par nom de salle :"
         '
@@ -79,31 +79,31 @@ Partial Class RechercheSalles
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DéconnexionToolStripMenuItem, Me.PlusDeRechercheTool, Me.RéserverUneSalleToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(848, 33)
+        Me.MenuStrip1.Size = New System.Drawing.Size(848, 31)
         Me.MenuStrip1.TabIndex = 31
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'DéconnexionToolStripMenuItem
         '
         Me.DéconnexionToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.DéconnexionToolStripMenuItem.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DéconnexionToolStripMenuItem.Font = New System.Drawing.Font("Arial Narrow", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DéconnexionToolStripMenuItem.Name = "DéconnexionToolStripMenuItem"
-        Me.DéconnexionToolStripMenuItem.Size = New System.Drawing.Size(123, 29)
+        Me.DéconnexionToolStripMenuItem.Size = New System.Drawing.Size(115, 27)
         Me.DéconnexionToolStripMenuItem.Text = "Déconnexion"
         '
         'PlusDeRechercheTool
         '
-        Me.PlusDeRechercheTool.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PlusDeRechercheTool.Font = New System.Drawing.Font("Arial Narrow", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PlusDeRechercheTool.Name = "PlusDeRechercheTool"
-        Me.PlusDeRechercheTool.Size = New System.Drawing.Size(188, 29)
+        Me.PlusDeRechercheTool.Size = New System.Drawing.Size(172, 27)
         Me.PlusDeRechercheTool.Text = "Voir mes réservations"
         '
         'RéserverUneSalleToolStripMenuItem
         '
-        Me.RéserverUneSalleToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RéserverUneSalleToolStripMenuItem.Font = New System.Drawing.Font("Arial Narrow", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RéserverUneSalleToolStripMenuItem.Name = "RéserverUneSalleToolStripMenuItem"
         Me.RéserverUneSalleToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.RéserverUneSalleToolStripMenuItem.Size = New System.Drawing.Size(175, 29)
+        Me.RéserverUneSalleToolStripMenuItem.Size = New System.Drawing.Size(152, 27)
         Me.RéserverUneSalleToolStripMenuItem.Text = "Réserver une salle"
         '
         'LabelTableauSalles
@@ -124,7 +124,7 @@ Partial Class RechercheSalles
         Me.TableauHorairesDispo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -142,9 +142,10 @@ Partial Class RechercheSalles
         Me.TableauHorairesDispo.Location = New System.Drawing.Point(272, 377)
         Me.TableauHorairesDispo.Name = "TableauHorairesDispo"
         Me.TableauHorairesDispo.ReadOnly = True
+        Me.TableauHorairesDispo.RowHeadersWidth = 60
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TableauHorairesDispo.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.TableauHorairesDispo.Size = New System.Drawing.Size(544, 233)
         Me.TableauHorairesDispo.TabIndex = 45
@@ -175,10 +176,10 @@ Partial Class RechercheSalles
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Modern No. 20", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Arial Narrow", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(2, 50)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(180, 21)
+        Me.Label3.Size = New System.Drawing.Size(163, 23)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Rechercher par Date :"
         '
@@ -264,9 +265,10 @@ Partial Class RechercheSalles
         '
         'RechercheHoraire
         '
-        Me.RechercheHoraire.Location = New System.Drawing.Point(62, 229)
+        Me.RechercheHoraire.Font = New System.Drawing.Font("Arial Narrow", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RechercheHoraire.Location = New System.Drawing.Point(59, 230)
         Me.RechercheHoraire.Name = "RechercheHoraire"
-        Me.RechercheHoraire.Size = New System.Drawing.Size(120, 48)
+        Me.RechercheHoraire.Size = New System.Drawing.Size(163, 48)
         Me.RechercheHoraire.TabIndex = 54
         Me.RechercheHoraire.Text = "Lancer la recherche"
         Me.RechercheHoraire.UseVisualStyleBackColor = True
