@@ -46,14 +46,12 @@ Public Class RechercheSalles
         myConnection.Open()
         Dim datechoisie = Me.datechoisie.Text
         Dim query As String = "CREATE OR REPLACE FORCE VIEW ""ADMIN_GSB"".""V_SALLE_DISPO"" (""ID_SALLE"") AS SELECT SALLE.ID_SALLE FROM SALLE MINUS SELECT RESERVATION.ID_SALLE FROM RESERVATION WHERE TO_CHAR(DATEDEBUT, 'DD-MM-YYYY HH24:MI:SS') = '" & datechoisie & "';"
-        MessageBox.Show(query)
         Me.LabelTableauSalles.Text = ("Voici les salles disponibles à cette horaire :")
         donnee = New DataTable
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
         myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
         myAdapter.Fill(donnee)
         TableauSallesDispo.DataSource = donnee
-        'Me.TableauSallesDispo.Columns(0).HeaderText = "Salle"
         myConnection.Close()
         myConnection.Open()
 
