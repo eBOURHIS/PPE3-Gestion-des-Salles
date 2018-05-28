@@ -42,7 +42,7 @@
         Me.BoxYear.Value = Date.Today.Year
 
         Me.BoxMonth.Maximum = 12
-        Me.BoxMonth.Minimum = Date.Today.Month
+        'Me.BoxMonth.Minimum = Date.Today.Month
         Me.BoxMonth.Value = Date.Today.Month
 
         Select Case Today.Date.Month
@@ -54,7 +54,7 @@
                 Me.BoxDay.Maximum = 30
         End Select
 
-        Me.BoxDay.Minimum = Date.Today.Day
+        'Me.BoxDay.Minimum = Date.Today.Day
         Me.BoxDay.Value = Date.Today.Day
 
         Me.BoxHour.Maximum = 23
