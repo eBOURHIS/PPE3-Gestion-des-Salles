@@ -18,19 +18,21 @@
             MessageBox.Show(ex.Message)
         End Try
 
-        Dim queryNomSalle As String = "SELECT ID_SALLE, NOM_SALLE FROM SALLE"
-        myCommand.Connection = myConnection
-        myCommand.CommandText = queryNomSalle
-        myReader = myCommand.ExecuteReader
-        Dim values As New Dictionary(Of Integer, String)
+        'Dim queryNomSalle As String = "SELECT ID_SALLE, NOM_SALLE FROM SALLE"
+        'myCommand.Connection = myConnection
+        'myCommand.CommandText = queryNomSalle
+        'myReader = myCommand.ExecuteReader
+        'Dim values As New Dictionary(Of Integer, String)
 
-        While myReader.Read
-            values.Add(myReader.GetString(0), myReader.GetString(1))
-        End While
+        'While myReader.Read
+        '    values.Add(myReader.GetString(0), myReader.GetString(1))
+        'End While
 
-        Me.ListeSallesModif.DataSource = New BindingSource(values, Nothing)
-        Me.ListeSallesModif.DisplayMember = "Value"
-        Me.ListeSallesModif.ValueMember = "Key"
+        'Me.ListeSallesModif.DataSource = New BindingSource(values, Nothing)
+        'Me.ListeSallesModif.DisplayMember = "Value"
+        'Me.ListeSallesModif.ValueMember = "Key"
+
+        Me.NomSalle.Text = Main.nomSalle
 
         myConnection.Close()
 
@@ -65,15 +67,11 @@
         myConnection.Close()
         myConnection.Open()
 
-        Dim horaire_year As String = Me.BoxYear.Value
-        Dim horaire_month As String = Me.BoxMonth.Value
-        Dim horaire_day As String = Me.BoxDay.Value
-        Dim horaire_hour As String = Me.BoxHour.Value
-
         Dim Libelle = Me.DescriptionBox.Text
-        Dim idSalle = Me.ListeSallesModif.SelectedValue.ToString
+
         Try
-            Dim query As String = "UPDATE RESERVATION SET ID_SALLE = '" & idSalle & "', DATEDEBUT = TO_DATE('" & horaire_day & "-" & horaire_month & "-" & horaire_year & " " & horaire_hour & ":00:00', 'DD-MM-YYYY HH24:MI:SS'), LIBELLERESERVATION = '" & Libelle & "';"
+            Dim query As String = "UPDATE RESERVATION SET DATEDEBUT = TO_DATE('" & Me.BoxDay.Value & "-" & Me.BoxMonth.Value & "-" & Me.BoxYear.Value & " " & Me.BoxHour.Value & ":00:00', 'DD-MM-YYYY HH24:MI:SS'), LIBELLERESERVATION = '" & Libelle & "' WHERE ID_SALLE = '" & Main.idSalle & "' AND DATEDEBUT = TO_DATE('" & Main.dateDebut & "','DD-MM-YYYY HH24:MI:SS');"
+            Debug.Print(query)
             myCommand.Connection = myConnection
             myCommand.CommandText = query
             myReader = myCommand.ExecuteReader

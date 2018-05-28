@@ -58,6 +58,8 @@ Partial Class VoirReservations
         '
         'MesReservations
         '
+        Me.MesReservations.AllowUserToAddRows = False
+        Me.MesReservations.AllowUserToDeleteRows = False
         Me.MesReservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.MesReservations.Location = New System.Drawing.Point(12, 60)
         Me.MesReservations.Name = "MesReservations"

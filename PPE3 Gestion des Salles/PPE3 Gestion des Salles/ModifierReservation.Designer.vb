@@ -38,9 +38,9 @@ Partial Class ModifierReservation
         Me.BoutonReservationValide = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.ListeSallesModif = New System.Windows.Forms.ComboBox()
         Me.oldsallename = New System.Windows.Forms.Label()
+        Me.NomSalle = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         CType(Me.BoxHour, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BoxDay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BoxMonth, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -197,25 +197,6 @@ Partial Class ModifierReservation
         Me.Label7.TabIndex = 86
         Me.Label7.Text = "Choisissez un horaire :"
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(18, 70)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(160, 20)
-        Me.Label8.TabIndex = 85
-        Me.Label8.Text = "Choisissez une salle :"
-        '
-        'ListeSallesModif
-        '
-        Me.ListeSallesModif.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ListeSallesModif.FormattingEnabled = True
-        Me.ListeSallesModif.Location = New System.Drawing.Point(18, 110)
-        Me.ListeSallesModif.Name = "ListeSallesModif"
-        Me.ListeSallesModif.Size = New System.Drawing.Size(121, 21)
-        Me.ListeSallesModif.TabIndex = 84
-        '
         'oldsallename
         '
         Me.oldsallename.AutoSize = True
@@ -224,11 +205,31 @@ Partial Class ModifierReservation
         Me.oldsallename.Size = New System.Drawing.Size(0, 13)
         Me.oldsallename.TabIndex = 99
         '
+        'NomSalle
+        '
+        Me.NomSalle.AutoSize = True
+        Me.NomSalle.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NomSalle.Location = New System.Drawing.Point(34, 122)
+        Me.NomSalle.Name = "NomSalle"
+        Me.NomSalle.Size = New System.Drawing.Size(0, 24)
+        Me.NomSalle.TabIndex = 101
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(18, 70)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(103, 20)
+        Me.Label8.TabIndex = 85
+        Me.Label8.Text = "Salle actuelle"
+        '
         'ModifierReservation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(864, 279)
+        Me.Controls.Add(Me.NomSalle)
         Me.Controls.Add(Me.oldsallename)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label6)
@@ -244,7 +245,6 @@ Partial Class ModifierReservation
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.ListeSallesModif)
         Me.Controls.Add(Me.Info)
         Me.Controls.Add(Me.LabelListeSalles)
         Me.Controls.Add(Me.ListeSalles)
@@ -274,7 +274,7 @@ Partial Class ModifierReservation
     Friend WithEvents BoutonReservationValide As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents ListeSallesModif As System.Windows.Forms.ComboBox
     Friend WithEvents oldsallename As System.Windows.Forms.Label
+    Friend WithEvents NomSalle As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
 End Class

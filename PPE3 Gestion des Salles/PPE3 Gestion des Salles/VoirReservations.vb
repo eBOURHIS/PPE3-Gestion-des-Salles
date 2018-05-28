@@ -68,6 +68,9 @@
                 Case MsgBoxResult.No
                     Select Case MsgBox("Voulez vous modifier cette réservation ?", MsgBoxStyle.YesNo, "Modifier une réservation")
                         Case MsgBoxResult.Yes
+                            Main.idSalle = values(1)
+                            Main.nomSalle = values(2)
+                            Main.dateDebut = values(3)
                             ModifierReservation.ShowDialog()
                         Case MsgBoxResult.No
                             MessageBox.Show("Opération annulée.")
