@@ -90,7 +90,8 @@
             ElseIf (login_sql = login And password_sql = password) Then
 
                 RechercheSalles.Show()
-                'Me.Close()
+                Me.Close()
+
             End If
 
         End If

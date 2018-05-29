@@ -39,6 +39,7 @@
         Me.NomSalle.Text = Main.nomSalle
 
         myConnection.Close()
+        myConnection.Open()
 
         Me.Info.Text = "Connecté : " & Main.nomEmploye & " " & Main.prenomEmploye
         Me.BoxYear.Maximum = Date.Today.Year + 1
@@ -87,6 +88,11 @@
         myConnection.Close()
         myConnection.Open()
 
+        Me.Close()
+
     End Sub
 
+    Private Sub ModifierReservation_FormClosed(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles MyBase.FormClosed
+        myConnection.Close()
+    End Sub
 End Class

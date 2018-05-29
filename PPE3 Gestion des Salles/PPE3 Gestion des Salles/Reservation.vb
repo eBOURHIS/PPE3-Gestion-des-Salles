@@ -94,4 +94,9 @@
 
     End Sub
 
+    Private Sub Reservation_FormClosed(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles MyBase.FormClosed
+        myConnection.Close()
+        myConnection.Open()
+    End Sub
+
 End Class

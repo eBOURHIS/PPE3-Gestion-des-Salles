@@ -49,7 +49,12 @@ Public Class RechercheSalles
         myConnection.Close()
         myConnection.Open()
         Dim datechoisie = Me.datechoisie.Text
-        Dim query As String = "CREATE OR REPLACE FORCE VIEW ""ADMIN_GSB"".""V_SALLE_DISPO"" (""ID_SALLE"") AS SELECT SALLE.ID_SALLE FROM SALLE MINUS SELECT RESERVATION.ID_SALLE FROM RESERVATION WHERE TO_CHAR(DATEDEBUT, 'DD-MM-YYYY HH24:MI:SS') = '" & datechoisie & "';"
+
+        'for local
+        'Dim query As String = "CREATE OR REPLACE FORCE VIEW ""Admin_GSB"".""V_SALLE_DISPO"" (""ID_SALLE"") AS SELECT SALLE.ID_SALLE FROM SALLE MINUS SELECT RESERVATION.ID_SALLE FROM RESERVATION WHERE TO_CHAR(DATEDEBUT, 'DD-MM-YYYY HH24:MI:SS') = '" & datechoisie & "';"
+        'for prod
+        Dim query As String = "CREATE OR REPLACE FORCE VIEW ""PPE3"".""V_SALLE_DISPO"" (""ID_SALLE"") AS SELECT SALLE.ID_SALLE FROM SALLE MINUS SELECT RESERVATION.ID_SALLE FROM RESERVATION WHERE TO_CHAR(DATEDEBUT, 'DD-MM-YYYY HH24:MI:SS') = '" & datechoisie & "';"
+
         Me.LabelTableauSalles.Text = ("Voici les salles disponibles à cette horaire :")
         donnee = New DataTable
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
@@ -57,7 +62,6 @@ Public Class RechercheSalles
         myAdapter.Fill(donnee)
         TableauSallesDispo.DataSource = donnee
         myConnection.Close()
-        myConnection.Open()
 
         Dim query2 As String = "SELECT SALLE.NOM_SALLE FROM V_SALLE_DISPO, SALLE WHERE v_salle_dispo.id_salle = SALLE.ID_SALLE;"
         Me.LabelTableauSalles.Text = ("Voici les salles disponibles à cette horaire :")
@@ -68,7 +72,6 @@ Public Class RechercheSalles
         TableauSallesDispo.DataSource = donnee
         Me.TableauSallesDispo.Columns(0).HeaderText = "Salle"
         myConnection.Close()
-        myConnection.Open()
     End Sub
 
     Private Sub ListeSalles_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListeSalles.SelectedIndexChanged
@@ -110,7 +113,4 @@ Public Class RechercheSalles
 
     End Sub
 
-    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles datechoisie.TextChanged
-       
-    End Sub
 End Class

@@ -16,6 +16,8 @@
         'prod
         connString = "DSN=ORAPROD;Uid=PPE3;Pwd=estran;"
 
+        myConnection.Close()
+
         myConnection.ConnectionString = connString
 
         Try
@@ -36,8 +38,15 @@
         myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
         myAdapter.Fill(donnee)
         Me.MesReservations.Refresh()
-        Me.MesReservations.DataSource = vbNull
-        Me.MesReservations.DataSource = donnee
+        'Me.MesReservations.DataSource = vbNull
+
+        Try
+            Me.MesReservations.DataSource = donnee
+        Catch ex As Odbc.OdbcException
+            MessageBox.Show(ex.Message)
+        End Try
+
+
         Me.MesReservations.Columns(1).HeaderText = "Salle"
         Me.MesReservations.Columns(2).HeaderText = "Date de début"
         Me.MesReservations.Columns(3).HeaderText = "Date de fin"
@@ -75,6 +84,7 @@
                             Main.idSalle = values(1)
                             Main.nomSalle = values(2)
                             Main.dateDebut = values(3)
+                            Main.unLibelle = values(5)
                             ModifierReservation.ShowDialog()
                         Case MsgBoxResult.No
                             MessageBox.Show("Opération annulée.")
@@ -83,6 +93,35 @@
             End Select
 
         End If
+
+        myReader.Close()
+
+        donnee = New DataTable()
+        Me.MesReservations.DataSource = donnee
+        Me.MesReservations.Refresh()
+        Dim query As String = "SELECT RESERVATION.ID_SALLE, NOM_SALLE, DATEDEBUT, DATEFIN, LIBELLERESERVATION FROM RESERVATION, SALLE WHERE salle.id_salle = RESERVATION.ID_SALLE AND RESERVATION.ID_EMPLOYE = " & Main.idEmploye & ""
+        myCommand.Connection = myConnection
+        myCommand.CommandText = query
+        myReader = myCommand.ExecuteReader
+
+        donnee = New DataTable
+        myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
+        myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
+        myAdapter.Fill(donnee)
+        Me.MesReservations.Refresh()
+        Me.MesReservations.DataSource = vbNull
+        Me.MesReservations.DataSource = donnee
+
+        Me.MesReservations.Columns(1).HeaderText = "Salle"
+        Me.MesReservations.Columns(2).HeaderText = "Date de début"
+        Me.MesReservations.Columns(3).HeaderText = "Date de fin"
+        Me.MesReservations.Columns(4).HeaderText = "Commentaire"
+
+        myConnection.Close()
+
+    End Sub
+
+    Private Sub VoirReservations_FormClosed(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles MyBase.FormClosed
         myConnection.Close()
     End Sub
 

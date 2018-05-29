@@ -6,5 +6,6 @@
     Public idSalle As String
     Public nomSalle As String
     Public dateDebut As String
+    Public unLibelle As String
 
 End Module
