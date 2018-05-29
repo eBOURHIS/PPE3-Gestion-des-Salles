@@ -10,7 +10,11 @@
 
     Private Sub Reservation_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         myConnection.Close()
-        connString = "DSN=ORA13;Uid=Admin_GSB;Pwd=estran;"
+        'local
+        'connString = "DSN=ORA13;Uid=Admin_GSB;Pwd=estran;"
+
+        'prod
+        connString = "DSN=ORAPROD;Uid=PPE3;Pwd=estran;"
 
         myConnection.ConnectionString = connString
 

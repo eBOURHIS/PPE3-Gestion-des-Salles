@@ -8,7 +8,11 @@
 
     Private Sub Reservation_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        connString = "DSN=ORA13;Uid=Admin_GSB;Pwd=estran;"
+        'local
+        'connString = "DSN=ORA13;Uid=Admin_GSB;Pwd=estran;"
+
+        'prod
+        connString = "DSN=ORAPROD;Uid=PPE3;Pwd=estran;"
 
         myConnection.ConnectionString = connString
 
@@ -42,7 +46,7 @@
         Me.BoxYear.Value = Date.Today.Year
 
         Me.BoxMonth.Maximum = 12
-        'Me.BoxMonth.Minimum = Date.Today.Month
+        Me.BoxMonth.Minimum = Date.Today.Month
         Me.BoxMonth.Value = Date.Today.Month
 
         Select Case Today.Date.Month
@@ -54,7 +58,7 @@
                 Me.BoxDay.Maximum = 30
         End Select
 
-        'Me.BoxDay.Minimum = Date.Today.Day
+        Me.BoxDay.Minimum = Date.Today.Day
         Me.BoxDay.Value = Date.Today.Day
 
         Me.BoxHour.Maximum = 23
