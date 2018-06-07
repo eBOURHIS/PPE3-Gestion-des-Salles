@@ -12,10 +12,10 @@
         'TextBox_password.PasswordChar = "*"
 
         'local
-        'connString = "DSN=ORA13;Uid=Admin_GSB;Pwd=estran;"
+        connString = "DSN=ORA13;Uid=Admin_GSB;Pwd=estran;"
 
         'prod
-        connString = "DSN=ORAPROD;Uid=PPE3;Pwd=estran;"
+        'connString = "DSN=ORAPROD;Uid=PPE3;Pwd=estran;"
 
         myConnection.ConnectionString = connString
 

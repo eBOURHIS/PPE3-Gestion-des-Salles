@@ -14,10 +14,10 @@ Public Class RechercheSalles
     Private Sub RecherchesSalles_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         myConnection.Close()
         'local
-        'connString = "DSN=ORA13;Uid=Admin_GSB;Pwd=estran;"
+        connString = "DSN=ORA13;Uid=Admin_GSB;Pwd=estran;"
 
         'prod
-        connString = "DSN=ORAPROD;Uid=PPE3;Pwd=estran;"
+        'connString = "DSN=ORAPROD;Uid=PPE3;Pwd=estran;"
 
         myConnection.ConnectionString = connString
 
@@ -51,9 +51,9 @@ Public Class RechercheSalles
         Dim datechoisie = Me.datechoisie.Text
 
         'for local
-        'Dim query As String = "CREATE OR REPLACE FORCE VIEW ""Admin_GSB"".""V_SALLE_DISPO"" (""ID_SALLE"") AS SELECT SALLE.ID_SALLE FROM SALLE MINUS SELECT RESERVATION.ID_SALLE FROM RESERVATION WHERE TO_CHAR(DATEDEBUT, 'DD-MM-YYYY HH24:MI:SS') = '" & datechoisie & "';"
+        Dim query As String = "CREATE OR REPLACE FORCE VIEW ""ADMIN_GSB"".""V_SALLE_DISPO"" (""ID_SALLE"") AS SELECT SALLE.ID_SALLE FROM SALLE MINUS SELECT RESERVATION.ID_SALLE FROM RESERVATION WHERE TO_CHAR(DATEDEBUT, 'DD-MM-YYYY HH24:MI:SS') = '" & datechoisie & "';"
         'for prod
-        Dim query As String = "CREATE OR REPLACE FORCE VIEW ""PPE3"".""V_SALLE_DISPO"" (""ID_SALLE"") AS SELECT SALLE.ID_SALLE FROM SALLE MINUS SELECT RESERVATION.ID_SALLE FROM RESERVATION WHERE TO_CHAR(DATEDEBUT, 'DD-MM-YYYY HH24:MI:SS') = '" & datechoisie & "';"
+        'Dim query As String = "CREATE OR REPLACE FORCE VIEW ""PPE3"".""V_SALLE_DISPO"" (""ID_SALLE"") AS SELECT SALLE.ID_SALLE FROM SALLE MINUS SELECT RESERVATION.ID_SALLE FROM RESERVATION WHERE TO_CHAR(DATEDEBUT, 'DD-MM-YYYY HH24:MI:SS') = '" & datechoisie & "';"
 
         Me.LabelTableauSalles.Text = ("Voici les salles disponibles à cette horaire :")
         donnee = New DataTable
