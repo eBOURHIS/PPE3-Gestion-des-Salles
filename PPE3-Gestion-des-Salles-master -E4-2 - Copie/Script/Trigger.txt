@@ -1,0 +1,42 @@
+create or replace TRIGGER TRG_HEUREFIN_RESERVATION
+  BEFORE INSERT ON RESERVATION
+  FOR EACH ROW
+BEGIN
+IF :new.DATEFIN IS NULL THEN
+  :new.DATEFIN := :new.DATEDEBUT + INTERVAL '1' HOUR;
+  END IF;
+END;
+
+
+create or replace TRIGGER EMPLOYE_on_insert
+  BEFORE INSERT ON EMPLOYE
+  FOR EACH ROW
+BEGIN
+  SELECT EMPLOYE_sequence.nextval
+  INTO :new.ID_EMPLOYE
+  FROM dual;
+END;
+
+
+create or replace TRIGGER ETAT_on_insert
+  BEFORE INSERT ON ETAT
+  FOR EACH ROW
+BEGIN
+  SELECT ETAT_sequence.nextval
+  INTO :new.ID_ETAT
+  from dual;
+END;
+
+
+create or replace TRIGGER SALLE_on_insert
+  BEFORE INSERT ON SALLE
+  FOR EACH ROW
+BEGIN
+  SELECT SALLE_sequence.nextval
+  INTO :new.ID_SALLE
+  FROM dual;
+END;
+
+CREATE SEQUENCE SALLE_sequence START WITH 1;
+
+
